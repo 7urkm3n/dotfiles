@@ -8,6 +8,9 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #Slack
 
 ################################################ .profile ################################
+#set_user_name_OSX
+#http://apple.stackexchange.com/questions/66611/how-to-change-computer-name-so-terminal-displays-it-in-mac-os-x-mountain-lion
+
 # export PATH=/usr/local/bin:$PATH
 # alias delete_dsstore="find . -name '*.DS_Store' -type f -delete"
 
