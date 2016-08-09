@@ -1,3 +1,15 @@
+function git_aware_prompt() {
+  echo "Git AWARE PROMT RUNNING !!!"
+  mkdir -p /usr/local/bin/ && cd $_
+  git clone git@github.com:7urkm3n/git-aware-prompt.git
+  echo "export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt" >> ~/.profile
+  echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
+
+}
+
+
+
+################################################ RVM ################################
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -8,6 +20,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #Slack
 
 ################################################ .profile ################################
+# [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 #set_user_name_OSX
 #http://apple.stackexchange.com/questions/66611/how-to-change-computer-name-so-terminal-displays-it-in-mac-os-x-mountain-lion
 
@@ -89,7 +102,7 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # Local commands
 alias p='cd ~/Documents/Projects/'
-alias .profile='s ~/.profile'
+alias .profile='subl ~/.profile'
 alias d1='cd /Volumes/Main\ disk'
 alias lla='ls -la'
 alias la='ls -a'
@@ -118,3 +131,6 @@ alias gc='git checkout'
 
 # Custom Git 
 alias gcd='git checkout development'
+
+#################### ADDED Functions
+
