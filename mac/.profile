@@ -64,7 +64,7 @@ export PATH=/usr/local/bin:$PATH
 
 # git branch and commitment shower
 # https://github.com/jimeh/git-aware-prompt
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
+export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 # export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
@@ -80,9 +80,9 @@ alias lvhp='RAILS_ENV=production rails s -p 3000 -b lvh.me'
 
 # alias lvh='rvmsudo rails server -p 80 -b 0.0.0.0'
 
-# Sublime2
+# Sublime
 # alias s="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
-alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # Local commands
 alias p='cd ~/Documents/Projects/'
