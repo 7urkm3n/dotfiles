@@ -1,26 +1,27 @@
+############################## List ##################
+#SEIL - Capslock key to ESC
+#Skitch - ScreenSHot
+#ScreenHero
+#Slack
+
 function git_aware_prompt() {
   echo "Git AWARE PROMT RUNNING !!!"
   mkdir -p /usr/local/bin/ && cd $_
   git clone git@github.com:7urkm3n/git-aware-prompt.git
   echo "export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt" >> ~/.profile
   echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
-
 }
 
 
 
 ################################################ RVM ################################
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# rvm get stable --auto-dotfiles
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-#SEIL - Capslock key to ESC
-#Skitch - ScreenSHot
-#ScreenHero
-#Slack
 
 ################################################ .profile ################################
-# [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
+
 #set_user_name_OSX
 #http://apple.stackexchange.com/questions/66611/how-to-change-computer-name-so-terminal-displays-it-in-mac-os-x-mountain-lion
 
@@ -45,12 +46,12 @@ export NODE_ENV=development
 
 
 #new DB commands
-alias db-status="brew services list"
+alias db-list="brew services list"
 alias mongo-start="brew services start mongodb"
 alias mongo-stop="brew services stop mongodb"
 
 alias pg-start="brew services start postgres"
-alias pg-stop="brew services start postgres"
+alias pg-stop="brew services stop postgres"
 
 ########## Auto Complete Terminal ###########
 # TAB: menu-complete
@@ -133,4 +134,3 @@ alias gc='git checkout'
 alias gcd='git checkout development'
 
 #################### ADDED Functions
-
