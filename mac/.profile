@@ -1,15 +1,25 @@
 ############################## List ##################
-#SEIL - Capslock key to ESC
-#Skitch - ScreenSHot
+#SEIL      - Capslock key to ESC
+#karabiner - https://github.com/tekezo/Karabiner-Elements/blob/master/usage/README.md
+#Skitch    - ScreenSHot
 #ScreenHero
 #Slack
+#[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" #Load default .profile
 
 function git_aware_prompt() {
   echo "Git AWARE PROMT RUNNING !!!"
   mkdir -p /usr/local/bin/ && cd $_
   git clone git@github.com:7urkm3n/git-aware-prompt.git
-  echo "export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt" >> ~/.profile
-  echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
+  # echo "export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt" >> ~/.profile
+  # echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
+}
+
+function profile_to_dotfile(){
+	cp ~/.profile $HOME/Documents/Projects/dotfiles/mac
+}
+
+function dotfile_to_profile(){
+	cp $HOME/Documents/Projects/dotfiles/mac/.profile ~/.profile 
 }
 
 
@@ -83,13 +93,15 @@ export PATH=/usr/local/bin:$PATH
 # https://github.com/jimeh/git-aware-prompt
 export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
-export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
+# export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
 export PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+
+# export PS1='\[\e[0;31m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$\E[5m '
 # export PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 
 #Vagrant LLTV
-alias lltv='cd /Users/rovshengurdov/Documents/Projects/ror/lltv/backend'
+alias lltv='cd $HOME/Documents/Projects/lltv_rails'
 alias puma_lvh='puma -b tcp://lvh.me:3000'
 alias lvh='rails s -p 3000 -b lvh.me'
 alias lvhp='RAILS_ENV=production rails s -p 3000 -b lvh.me'
@@ -104,17 +116,17 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias p='cd ~/Documents/Projects/'
 alias .profile='subl ~/.profile'
 alias d1='cd /Volumes/Main\ disk'
-alias lla='ls -la'
-alias la='ls -a'
-alias l='ls'
+alias lla='ls -la -G'
+alias la='ls -a -G'
+alias l='ls -G'
 
 # Rspec 
 # alias r='rspec'
 # alias cr='clear; rspec'
 
 # Github
-alias go='git push origin'
-alias gp='git pull origin'
+alias gopush='git push origin'
+alias gopull='git pull origin'
 alias goh='git push heroku master'
 alias gs='git status'
 alias gaa='git add .'
