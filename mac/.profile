@@ -35,10 +35,12 @@ function git_aware_prompt() {
 
 function profile_to_dotfile(){
 	cp ~/.profile $HOME/Documents/Projects/dotfiles/mac
+	echo "Profile To Dotfile has successfully copied"
 }
 
 function dotfile_to_profile(){
 	cp $HOME/Documents/Projects/dotfiles/mac/.profile ~/.profile 
+	echo "Dotfile To Profile has successfully copied"
 }
 
 
@@ -50,7 +52,7 @@ function dotfile_to_profile(){
 
 ################################################ .profile ################################
 # export PATH=/usr/local/bin:$PATH
-# alias delete_dsstore="find . -name '*.DS_Store' -type f -delete"
+alias delete_dsstore="find . -name '*.DS_Store' -type f -delete"
 
 
 alias reload!=". ~/.profile"
@@ -90,7 +92,7 @@ fi
 
 # git branch and commitment shower
 # https://github.com/jimeh/git-aware-prompt
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
+export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
 export PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
@@ -107,7 +109,6 @@ alias lltv='cd $HOME/Documents/Projects/lltv_rails'
 alias puma_lvh='puma -b tcp://lvh.me:3000'
 alias lvh='rails s -p 3000 -b lvh.me'
 alias lvhp='RAILS_ENV=production rails s -p 3000 -b lvh.me'
-
 # alias lvh='rvmsudo rails server -p 80 -b 0.0.0.0'
 
 # Sublime
