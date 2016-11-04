@@ -38,7 +38,7 @@ function profile_to_dotfile(){
 	pd_path=$HOME/Documents/Projects/dotfiles
 	cp ~/.profile $pd_path/mac
 	git -C $pd_path add .
-	git -C $pd_path commit ...
+	git -C $pd_path commit -m ...
 	git -C $pd_path push
 	echo "Profile To Dotfile has successfully copied"
 }
