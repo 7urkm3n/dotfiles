@@ -9,7 +9,6 @@
 ##### This is should in .bash_profile file
 # source ~/.profile # Get the paths
 # source ~/.bashrc  # get aliases
-
 export GOPATH="$HOME/Documents/Projects/golang"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/sbin:$PATH"
