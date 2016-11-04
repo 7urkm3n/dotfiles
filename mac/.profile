@@ -12,7 +12,8 @@
 
 export GOPATH="$HOME/Documents/Projects/golang"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH=$PATH:$GOPATH/bin #golang path for bin
+export PATH="/usr/local/sbin:$PATH"
+# export PATH=$PATH:$GOPATH/bin #golang path for bin
 
 # Git local runner
 export PATH=/usr/local/bin:$PATH
@@ -34,7 +35,11 @@ function git_aware_prompt() {
 }
 
 function profile_to_dotfile(){
-	cp ~/.profile $HOME/Documents/Projects/dotfiles/mac
+	pd_path=$HOME/Documents/Projects/dotfiles
+	cp ~/.profile $pd_path/mac
+	git -C $pd_path add .
+	git -C $pd_path commit ...
+	git -C $pd_path push
 	echo "Profile To Dotfile has successfully copied"
 }
 
@@ -52,13 +57,14 @@ function dotfile_to_profile(){
 
 ################################################ .profile ################################
 # export PATH=/usr/local/bin:$PATH
-alias delete_dsstore="find . -name '*.DS_Store' -type f -delete"
+alias dstore="find . -name '*.DS_Store' -type f -delete"
 
 
 alias reload!=". ~/.profile"
 export EDITOR=vim
 # export NODE_ENV=production
 export NODE_ENV=development
+export secret_key_base='blablabla'
 
 # # PostgreDB
 # alias pg-help="pg_ctl --help"
@@ -70,6 +76,8 @@ export NODE_ENV=development
 # alias mongops='ps -ax | grep mongo'
 # alias mongod='sudo mongod'
 
+#Webpack Web Server
+alias wb="webpack-dev-server --hot --inline"
 
 #new DB commands
 alias db-status="brew services list"
@@ -110,6 +118,7 @@ alias puma_lvh='puma -b tcp://lvh.me:3000'
 alias lvh='rails s -p 3000 -b lvh.me'
 alias lvhp='RAILS_ENV=production rails s -p 3000 -b lvh.me'
 # alias lvh='rvmsudo rails server -p 80 -b 0.0.0.0'
+alias compile_prod='rake assets:precompile RAILS_ENV=production'
 
 # Sublime
 alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
