@@ -33,12 +33,17 @@ function git_aware_prompt() {
   # echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
 }
 
+function pd_to_github(){
+	git -C $1 add .
+	git -C $1 commit -m ...
+	git -C $1 push
+}
+
 function profile_to_dotfile(){
 	pd_path=$HOME/Documents/Projects/dotfiles
 	cp ~/.profile $pd_path/mac
-	git -C $pd_path add .
-	git -C $pd_path commit -m ...
-	git -C $pd_path push
+	pd_to_github $pd_path
+
 	echo "Profile To Dotfile has successfully copied"
 }
 
