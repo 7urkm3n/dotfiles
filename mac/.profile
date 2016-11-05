@@ -12,7 +12,7 @@
 export GOPATH="$HOME/Documents/Projects/golang"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/sbin:$PATH"
-# export PATH=$PATH:$GOPATH/bin #golang path for bin
+export PATH=$PATH:$GOPATH/bin #golang path for bin
 
 # Git local runner
 export PATH=/usr/local/bin:$PATH
