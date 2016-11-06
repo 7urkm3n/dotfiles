@@ -93,7 +93,10 @@ alias mongo-start="brew services start mongodb"
 alias mongo-stop="brew services stop mongodb"
 
 alias pg-start="brew services start postgres"
-alias pg-stop="brew services start postgres"
+alias pg-stop="brew services stop postgres"
+
+alias rethink-start="brew services start rethinkdb"
+alias rethink-stop="brew services stop rethinkdb"
 
 ########## Auto Complete Terminal ###########
 # TAB: menu-complete
