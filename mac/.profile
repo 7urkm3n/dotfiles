@@ -10,6 +10,7 @@
 # source ~/.profile # Get the paths
 # source ~/.bashrc  # get aliases
 export GOPATH="$HOME/Documents/Projects/golang"
+# export GOBIN=$GOPATH/bin
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:$GOPATH/bin #golang path for bin
@@ -24,6 +25,11 @@ export PATH=/usr/local/bin:$PATH
 
 
 ############################## Functions ##############################
+
+function w (){
+	city=$1
+	curl http://wttr.in/$city
+}
 
 function git_aware_prompt() {
   echo "Git AWARE PROMT RUNNING !!!"
@@ -88,12 +94,15 @@ export secret_key_base='blablabla'
 alias wb="webpack-dev-server --hot --inline"
 
 #new DB commands
-alias db-status="brew services list"
+alias dblist="brew services list"
 alias mongo-start="brew services start mongodb"
 alias mongo-stop="brew services stop mongodb"
 
 alias pg-start="brew services start postgres"
 alias pg-stop="brew services stop postgres"
+
+alias mq-start="brew services start mysql"
+alias mq-stop="brew services stop mysql"
 
 alias rethink-start="brew services start rethinkdb"
 alias rethink-stop="brew services stop rethinkdb"
