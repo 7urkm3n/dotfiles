@@ -99,6 +99,7 @@ alias mongo-start="brew services start mongodb"
 alias mongo-stop="brew services stop mongodb"
 
 alias pg-start="brew services start postgres"
+alias pg-restart="brew services restart postgres"
 alias pg-stop="brew services stop postgres"
 
 alias mq-start="brew services start mysql"
