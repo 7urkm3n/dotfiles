@@ -71,7 +71,7 @@ function dotfile_to_profile(){
 
 ################################################ .profile ################################
 # export PATH=/usr/local/bin:$PATH
-alias dstore="find . -name '*.DS_Store' -type f -delete"
+alias dsstore="find . -name '*.DS_Store' -type f -delete"
 
 
 alias reload!=". ~/.profile"
