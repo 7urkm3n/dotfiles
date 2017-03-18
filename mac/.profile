@@ -63,7 +63,7 @@ function dotfile_to_profile(){
 	echo "Dotfile To Profile has successfully copied"
 }
 
-
+alias sshsolapizza='ssh deploy@107.180.106.43'
 
 ############################## RVM ##############################
 # rvm get stable --auto-dotfiles
