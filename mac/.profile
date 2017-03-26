@@ -43,6 +43,10 @@ function git_aware_prompt() {
 # 	return $HOME/Documents/Projects/dotfiles
 # }
 
+function tt(){
+	echo $git_branch
+}
+
 function pd_to_github(){
 	path=$1
 	git -C $path add .
@@ -50,16 +54,21 @@ function pd_to_github(){
 	git -C $path push
 }
 
-function profile_to_dotfile(){
+function profile_push(){
 	path=$HOME/Documents/Projects/dotfiles
 	cp ~/.profile $path/mac
 	pd_to_github $path
 	echo "Profile To Dotfile has successfully copied"
 }
 
-function dotfile_to_profile(){
+function dotfiles_to_profile(){
 	cp $HOME/Documents/Projects/dotfiles/mac/.profile ~/.profile 
-	echo "Dotfile To Profile has successfully copied"
+	echo "Dotfile has successfully copied TO ~/.profile"
+}
+
+function profile_to_dotfiles(){
+	cp ~/.profile $HOME/Documents/Projects/dotfiles/mac/.profile
+	echo "~/.profile has successfully copied to Dotfile"
 }
 
 
@@ -104,6 +113,10 @@ alias pg-stop="brew services stop postgres"
 
 alias mq-start="brew services start mysql"
 alias mq-stop="brew services stop mysql"
+
+alias redis-start="brew services start redis"
+alias redis-restart="brew services stop redis"
+alias redis-stop="brew services stop redis"
 
 alias rethink-start="brew services start rethinkdb"
 alias rethink-stop="brew services stop rethinkdb"
@@ -157,7 +170,15 @@ alias l='ls -G'
 # alias cr='clear; rspec'
 
 # Github
-alias gopush='git push origin'
+
+function gopush(){
+	# branch=$git_branch | tr -d \)\(
+	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+	echo "Git pushing to" $txtred $branch
+	git push origin $branch
+}
+
+# alias gopush="git push origin \$git_branch"
 alias gopull='git pull origin'
 alias goh='git push heroku master'
 alias gs='git status'
