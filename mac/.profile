@@ -14,6 +14,7 @@ export GOPATH="$HOME/Documents/Projects/golang"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:$GOPATH/bin #golang path for bin
+export PATH=$PATH:/usr/local/mysql/bin #mysql
 
 # Git local runner
 export PATH=/usr/local/bin:$PATH
@@ -71,7 +72,7 @@ function profile_to_dotfiles(){
 	echo "~/.profile has successfully copied to Dotfile"
 }
 
-
+alias sshsolapizza='ssh deploy@107.180.106.43'
 
 ############################## RVM ##############################
 # rvm get stable --auto-dotfiles
@@ -99,6 +100,11 @@ export secret_key_base='blablabla'
 # alias mongops='ps -ax | grep mongo'
 # alias mongod='sudo mongod'
 
+######### Heroku ############
+alias heroku_off="heroku maintenance:off"
+alias heroku_on="heroku maintenance:on"
+######### Heroku End ############
+
 #Webpack Web Server
 alias wb="webpack-dev-server --hot --inline"
 
@@ -111,8 +117,8 @@ alias pg-start="brew services start postgres"
 alias pg-restart="brew services restart postgres"
 alias pg-stop="brew services stop postgres"
 
-alias mq-start="brew services start mysql"
-alias mq-stop="brew services stop mysql"
+alias my-start="brew services start mysql"
+alias my-stop="brew services stop mysql"
 
 alias redis-start="brew services start redis"
 alias redis-restart="brew services stop redis"
