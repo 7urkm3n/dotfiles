@@ -39,10 +39,8 @@ function git_aware_prompt() {
   # echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
 }
 
-# function pd_path(){
-# 	return $HOME/Documents/Projects/dotfiles
-# }
 
+## .profile Files 
 function pd_to_github(){
 	path=$1
 	git -C $path add .
@@ -68,6 +66,15 @@ function profile_to_dotfiles(){
 }
 
 
+## delete file in a current folder
+function delete_x(){
+	# find "$(pwd)" -name '*.' -type f -delete
+	echo "$(pwd)"
+	find "$(pwd)" -name ".*.*" -print
+
+	# find . -name "*.crdownload" -print
+	# find . -name "*.*" -print
+}
 
 ############################## RVM ##############################
 # rvm get stable --auto-dotfiles
@@ -76,7 +83,9 @@ function profile_to_dotfiles(){
 
 ################################################ .profile ################################
 # export PATH=/usr/local/bin:$PATH
+
 alias dsstore="find . -name '*.DS_Store' -type f -delete"
+alias deletee="find `pwd` -name '*.' -type f -delete"
 
 
 alias reload!=". ~/.profile"
