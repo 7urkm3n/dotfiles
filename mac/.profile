@@ -18,6 +18,8 @@ export PATH=$PATH:$GOPATH/bin #golang path for bin
 # Git local runner
 export PATH=/usr/local/bin:$PATH
 
+
+# alias python='python2'
 ### Emailing
 # export SMTP_USER=""
 # export SMTP_PASSWORD=""
@@ -72,6 +74,10 @@ function delete_x(){
 	echo "$(pwd)"
 	find "$(pwd)" -name ".*.*" -print
 
+	# Use this to delete recursive
+	# find . -name ".*" -delete
+
+	# Dnt use it!
 	# find . -name "*.crdownload" -print
 	# find . -name "*.*" -print
 }
