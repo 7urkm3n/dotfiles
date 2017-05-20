@@ -72,7 +72,7 @@ function profile_to_dotfiles(){
 function delete_x(){
 	# find "$(pwd)" -name '*.' -type f -delete
 	echo "$(pwd)"
-	find "$(pwd)" -name ".*.*" -print
+    find . -name ".*" -print
 
 	# Use this to delete recursive
 	# find . -name ".*" -delete
@@ -207,3 +207,5 @@ alias gc='git checkout'
 
 # Custom Git 
 alias gcd='git checkout development'
+
+[[ -s "/Users/7urkm3n/.gvm/scripts/gvm" ]] && source "/Users/7urkm3n/.gvm/scripts/gvm"
