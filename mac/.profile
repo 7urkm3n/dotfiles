@@ -46,12 +46,6 @@ function w (){
 	else
 		curl http://wttr.in
 	fi
-
-	# if [[ $2 ]]; then
-	# 	curl $url?m
-	# else
-	# 	curl $url
-	# fi
 }
 
 function git_aware_prompt() {
