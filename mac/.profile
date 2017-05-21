@@ -75,7 +75,7 @@ function profile_push(){
 	path=$HOME/Documents/Projects/dotfiles
 	cp ~/.profile $path/mac
 	pd_to_github $path
-	echo "Profile To Dotfile has successfully copied"
+	echo "Profile has been copied to Dofiles Folder and pushed to Github"
 }
 
 function dotfiles_to_profile(){
