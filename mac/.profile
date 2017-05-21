@@ -65,7 +65,7 @@ function pd_to_github(){
 	git -C $path push
 }
 
-function profile_push(){
+function .profile_push(){
 	path=$HOME/Documents/Projects/dotfiles
 	cp ~/.profile $path/mac
 	pd_to_github $path
