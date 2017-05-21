@@ -1,3 +1,5 @@
+[[ -s "/Users/7urkm3n/.gvm/scripts/gvm" ]] && source "/Users/7urkm3n/.gvm/scripts/gvm"
+
 ############################## List ##################
 #SEIL      - Capslock key to ESC
 #karabiner - https://github.com/tekezo/Karabiner-Elements/blob/master/usage/README.md
@@ -27,24 +29,29 @@ export PATH=/usr/local/bin:$PATH
 # export SMTP_ADDRESS=""
 
 
+
+
+
 ############################## Functions ##############################
 
 function w (){
 	city=$1
 	metrics=$2
 	if [[ $city = 'c' ]]; then
-		url=http://wttr.in?m
+		curl http://wttr.in?m
+	elif [[ $metrics = 'c' ]]; then
+		curl http://wttr.in/$city?m
 	elif [[ $city ]]; then
-		url=http://wttr.in/$city
+		curl http://wttr.in/$city
 	else
-		url=http://wttr.in
+		curl http://wttr.in
 	fi
 
-	if [[ $2 ]]; then
-		curl $url?m
-	else
-		curl $url
-	fi
+	# if [[ $2 ]]; then
+	# 	curl $url?m
+	# else
+	# 	curl $url
+	# fi
 }
 
 function git_aware_prompt() {
@@ -157,12 +164,35 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
 
-# git branch and commitment shower
+
+
+############# Git branch and commitment shower | Current location etc...
+
 # https://github.com/jimeh/git-aware-prompt
 export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
-export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
-export PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+GVM='$(gvm-prompt "(%s)")'
+PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+# export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
+# export PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+
+
+# if [ "$(whoami)"='7urkm3n' ]; then
+#   RED='\e[0;31m'
+#   GREEN='\e[0;32m'
+#   NC='\e[0m'
+#   GIT_BRANCH='$(__git_ps1 "(%s)")'
+#   PS1="[${RED}\u@\h:\W \t.\d${GREEN}${GIT_BRANCH}$NC 123 ${GVM}] \n >"
+# else
+#   RED='\e[0;31m'
+#   GREEN='\e[0;32m'
+#   NC='\e[0m'
+#   GIT_BRANCH='$(__git_ps1 "(%s)")'
+#   GVM='$(gvm-prompt "(%s)")'
+#   PS1="[${GREEN}\u@\h:\W ${RED}${GIT_BRANCH}$NC ${GVM}] \n >"
+# fi
+
+
 
 ##################### more exaples
 # export PS1='\[\e[0;31m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$\E[5m '
@@ -222,4 +252,4 @@ alias gc='git checkout'
 # Custom Git 
 alias gcd='git checkout development'
 
-[[ -s "/Users/7urkm3n/.gvm/scripts/gvm" ]] && source "/Users/7urkm3n/.gvm/scripts/gvm"
+
