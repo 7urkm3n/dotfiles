@@ -12,8 +12,8 @@
 # source ~/.profile # Get the paths
 # source ~/.bashrc  # get aliases
 export GOPATH="$HOME/Documents/Projects/golang"
-export PATH=$PATH:$GOPATH/bin #golang path for bin
-# export GOBIN=$GOPATH/bin
+# export PATH=$PATH:$GOPATH/bin #golang path for bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/sbin:$PATH"
@@ -140,9 +140,9 @@ alias pg-stop="brew services stop postgres"
 alias mq-start="brew services start mysql"
 alias mq-stop="brew services stop mysql"
 
-alias redis-start="brew services start redis"
-alias redis-restart="brew services stop redis"
-alias redis-stop="brew services stop redis"
+alias rd-start="brew services start redis"
+alias rd-restart="brew services stop redis"
+alias rd-stop="brew services stop redis"
 
 alias rethink-start="brew services start rethinkdb"
 alias rethink-stop="brew services stop rethinkdb"
@@ -196,6 +196,11 @@ PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$g
 
 
 #Vagrant LLTV
+function ttt(){
+	port="3000"
+	echo $port
+	`rails s -p $port -b lvh.me`
+}
 alias lltv='cd $HOME/Documents/Projects/lltv_rails'
 alias puma_lvh='puma -b tcp://lvh.me:3000'
 alias lvh='rails s -p 3000 -b lvh.me'
