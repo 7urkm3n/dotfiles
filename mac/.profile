@@ -1,5 +1,3 @@
-[[ -s "/Users/7urkm3n/.gvm/scripts/gvm" ]] && source "/Users/7urkm3n/.gvm/scripts/gvm"
-
 ############################## List ##################
 #SEIL      - Capslock key to ESC
 #karabiner - https://github.com/tekezo/Karabiner-Elements/blob/master/usage/README.md
@@ -12,8 +10,11 @@
 # source ~/.profile # Get the paths
 # source ~/.bashrc  # get aliases
 export GOPATH="$HOME/Documents/Projects/golang"
-# export PATH=$PATH:$GOPATH/bin #golang path for bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
+
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/sbin:$PATH"
