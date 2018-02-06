@@ -107,10 +107,9 @@ function delete_x(){
 # export PATH=/usr/local/bin:$PATH
 
 alias dsstore="find . -name '*.DS_Store' -type f -delete"
-alias deletee="find `pwd` -name '*.' -type f -delete"
+#alias deletee="find `pwd` -name '*.' -type f -delete"
 
 
-alias reload!=". ~/.profile"
 export EDITOR=vim
 # export NODE_ENV=production
 export NODE_ENV=development
@@ -196,17 +195,24 @@ PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$g
 
 
 
-#Vagrant LLTV
-function ttt(){
+function lvh(){
 	port="3000"
-	echo $port
-	`rails s -p $port -b lvh.me`
+	echo "Rails Server Runs at port:" $port
+	rails s -p $port -b lvh.me
 }
-alias lltv='cd $HOME/Documents/Projects/lltv_rails'
-alias puma_lvh='puma -b tcp://lvh.me:3000'
-alias lvh='rails s -p 3000 -b lvh.me'
+
+function reload! () {
+	echo "Reloading bash profile...!"
+	source ~/.bash_profile
+	echo "Reloaded!!!"
+}
+
+alias 412='cd $HOME/Documents/Projects/412eats/web-server-rails'
+# alias puma_lvh='puma -b tcp://lvh.me:3000'
+# alias lvh='rails s -p 3000 -b lvh.me'
 alias lvhp='RAILS_ENV=production rails s -p 3000 -b lvh.me'
 # alias lvh='rvmsudo rails server -p 80 -b 0.0.0.0'
+alias lvh_certificate="rails s -b 'ssl://lvh.me:3000?key=localhost.key&cert=localhost.crt'"
 alias compile_prod='rake assets:precompile RAILS_ENV=production'
 
 # Sublime
@@ -229,13 +235,19 @@ alias l='ls -G'
 function gopush(){
 	# branch=$git_branch | tr -d \)\(
 	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-	echo "Git pushing to" $txtred $branch
+	echo "Pushing to:" $txtred $branch
 	git push origin $branch
 }
 
+function gopull(){
+	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+	echo "Pulling From:" $txtred $branch
+	git pull origin $branch	
+}
+
 # alias gopush="git push origin \$git_branch"
-alias gopull='git pull origin'
-alias goh='git push heroku master'
+# alias gopull='git pull origin'
+# alias goh='git push heroku master'
 alias gs='git status'
 alias gaa='git add .'
 alias gb='git branch'
@@ -251,5 +263,3 @@ alias gc='git checkout'
 
 # Custom Git 
 alias gcd='git checkout development'
-
-
