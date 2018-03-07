@@ -77,6 +77,15 @@ function profile_push(){
 	echo "Profile has been copied to Dofiles Folder and pushed to Github"
 }
 
+function profile_pull(){
+	path=$HOME/Documents/Projects/dotfiles
+	# cp ~/.profile $path/mac
+	git pull origin master
+	cp $path/mac/.profile ~/.profile
+	echo "Profile has been copied to Dofiles Folder and pushed to Github"
+}
+
+
 function dotfiles_to_profile(){
 	cp $HOME/Documents/Projects/dotfiles/mac/.profile ~/.profile 
 	echo "Dotfile has successfully copied TO ~/.profile"
