@@ -9,10 +9,14 @@
 ##### This is should in .bash_profile file
 # source ~/.profile # Get the paths
 # source ~/.bashrc  # get aliases
+
+# export GOROOT="/usr/local/opt/go/libexec"
+# export GOROOT="/usr/local/go"
 export GOPATH="$HOME/Documents/Projects/golang"
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+# export GOBIN="/usr/local/go/bin"
+# export PATH=$PATH:$GOROOT/bin
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 
 
@@ -163,7 +167,7 @@ fi
 ############# Git branch and commitment shower | Current location etc...
 
 # https://github.com/jimeh/git-aware-prompt
-export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt
+export GITAWAREPROMPT="/usr/local/bin/git-aware-prompt"
 source "${GITAWAREPROMPT}/main.sh"
 GVM='$(gvm-prompt "(%s)")'
 PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
@@ -198,7 +202,8 @@ PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$g
 function lvh(){
 	port="3000"
 	echo "Rails Server Runs at port:" $port
-	rails s -p $port -b lvh.me
+	# rails s -p $port -b lvh.me
+	foreman start -f ./Procfile.development
 }
 
 function reload! () {
@@ -207,6 +212,7 @@ function reload! () {
 	echo "Reloaded!!!"
 }
 
+alias emails='MailHog'
 alias 412='cd $HOME/Documents/Projects/412eats/web-server-rails'
 # alias puma_lvh='puma -b tcp://lvh.me:3000'
 # alias lvh='rails s -p 3000 -b lvh.me'
@@ -216,7 +222,10 @@ alias lvh_certificate="rails s -b 'ssl://lvh.me:3000?key=localhost.key&cert=loca
 alias compile_prod='rake assets:precompile RAILS_ENV=production'
 
 # Sublime
-alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+# alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+# Visual Studio
+alias s=code
 
 # Local commands
 alias p='cd ~/Documents/Projects/'
@@ -247,7 +256,7 @@ function gopull(){
 
 # alias gopush="git push origin \$git_branch"
 # alias gopull='git pull origin'
-# alias goh='git push heroku master'
+alias goh='git push heroku master'
 alias gs='git status'
 alias gaa='git add .'
 alias gb='git branch'
@@ -263,3 +272,4 @@ alias gc='git checkout'
 
 # Custom Git 
 alias gcd='git checkout development'
+alias gcr='git checkout rovshen'
