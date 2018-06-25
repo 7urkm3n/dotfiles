@@ -16,7 +16,7 @@ export GOPATH="$HOME/Documents/Projects/golang"
 # export GOBIN="/usr/local/go/bin"
 # export PATH=$PATH:$GOROOT/bin
 export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+#export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 
 
@@ -62,7 +62,7 @@ function git_aware_prompt() {
 }
 
 
-## .profile Files 
+## .profile Files
 function pd_to_github(){
 	path=$1
 	git -C $path add .
@@ -82,12 +82,12 @@ function profile_pull(){
 	# cp ~/.profile $path/mac
 	git pull origin master
 	cp $path/mac/.profile ~/.profile
-	echo "Profile has been copied to Dofiles Folder and pushed to Github"
+	echo "Profile has been copied to Dofiles Folder and pulled from Guthub"
 }
 
 
 function dotfiles_to_profile(){
-	cp $HOME/Documents/Projects/dotfiles/mac/.profile ~/.profile 
+	cp $HOME/Documents/Projects/dotfiles/mac/.profile ~/.profile
 	echo "Dotfile has successfully copied TO ~/.profile"
 }
 
@@ -126,7 +126,6 @@ alias dsstore="find . -name '*.DS_Store' -type f -delete"
 export EDITOR=vim
 # export NODE_ENV=production
 export NODE_ENV=development
-export secret_key_base='blablabla'
 
 # # PostgreDB
 # alias pg-help="pg_ctl --help"
@@ -230,11 +229,14 @@ alias lvhp='RAILS_ENV=production rails s -p 3000 -b lvh.me'
 alias lvh_certificate="rails s -b 'ssl://lvh.me:3000?key=localhost.key&cert=localhost.crt'"
 alias compile_prod='rake assets:precompile RAILS_ENV=production'
 
+# Atom
+# alias s="/Applications/Atom.app/Contents/Resources/app/atom.sh"
+
 # Sublime
-# alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # Visual Studio
-alias s=code
+alias vs=code
 
 # Local commands
 alias p='cd ~/Documents/Projects/'
@@ -244,9 +246,9 @@ alias lla='ls -la -G'
 alias la='ls -a -G'
 alias l='ls -G'
 
-# Rspec 
+# Rspec
 # alias r='rspec'
-# alias cr='clear; rspec'
+alias cr='clear; rspec'
 
 # Github
 
@@ -260,7 +262,7 @@ function gopush(){
 function gopull(){
 	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 	echo "Pulling From:" $txtred $branch
-	git pull origin $branch	
+	git pull origin $branch
 }
 
 # alias gopush="git push origin \$git_branch"
@@ -279,6 +281,6 @@ alias gc='git checkout'
 # alias got='git '
 # alias get='git '
 
-# Custom Git 
+# Custom Git
 alias gcd='git checkout development'
 alias gcr='git checkout rovshen'
