@@ -9,7 +9,7 @@
 # source ~/.profile # Get the paths
 # source ~/.bashrc  # get aliases
 
-
+//for test update
 # Go Development
 export GOPATH="$HOME/Documents/Projects/golang"
 export GOROOT="$(brew --prefix golang)/libexec"
