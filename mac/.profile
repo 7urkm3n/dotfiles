@@ -9,7 +9,7 @@
 # source ~/.profile # Get the paths
 # source ~/.bashrc  # get aliases
 
-//for test update
+
 # Go Development
 export GOPATH="$HOME/Documents/Projects/golang"
 export GOROOT="$(brew --prefix golang)/libexec"
@@ -82,7 +82,7 @@ function profile_push(){
 
 function profile_pull(){
 	path=$HOME/Documents/Projects/dotfiles
-	git pull origin master
+	git -C $path pull origin master
 	cp $path/mac/.profile ~/.profile
 	echo "Profile has been copied to Dofiles Folder! and Git Updated!"
 }
