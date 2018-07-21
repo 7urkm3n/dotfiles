@@ -13,7 +13,7 @@
 # Go Development
 export GOPATH="$HOME/Documents/Projects/golang"
 export GOROOT="$(brew --prefix golang)/libexec"
-# export GOBIN="$GOPATH/bin"
+export GOBIN="$GOPATH/bin"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 test -d "${GOPATH}" || mkdir "${GOPATH}"
