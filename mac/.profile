@@ -2,24 +2,27 @@
 #SEIL      - Capslock key to ESC
 #karabiner - https://github.com/tekezo/Karabiner-Elements/blob/master/usage/README.md
 #Skitch    - ScreenSHot
-#ScreenHero
 #Slack
 #[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" #Load default .profile
 
-##### This is should in .bash_profile file
+##### These lines should be in .bash_profile to load the .profile
 # source ~/.profile # Get the paths
 # source ~/.bashrc  # get aliases
 
-# export GOROOT="/usr/local/opt/go/libexec"
-# export GOROOT="/usr/local/go"
+
+# Go Development
 export GOPATH="$HOME/Documents/Projects/golang"
-# export GOBIN="/usr/local/go/bin"
-# export PATH=$PATH:$GOROOT/bin
-export PATH="$PATH:$GOPATH/bin"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+test -d "${GOPATH}" || mkdir "${GOPATH}"
+test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
+
+
+# Visual Studio
 #export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 
-
+# RVM
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/sbin:$PATH"
 
