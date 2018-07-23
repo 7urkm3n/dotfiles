@@ -67,22 +67,16 @@ function git_aware_prompt() {
 }
 
 
-## .profile Files
-function pd_to_github(){
-	path=$1
+function .profile_push(){
+	path=$HOME/Documents/Projects/dotfiles
+	cp ~/.profile $path/mac
 	git -C $path add .
 	git -C $path commit -m ...
 	git -C $path push
-}
-
-function profile_push(){
-	path=$HOME/Documents/Projects/dotfiles
-	cp ~/.profile $path/mac
-	pd_to_github $path
 	echo "Dotfile has been copied to Profile Folder and Updated!"
 }
 
-function profile_pull(){
+function .profile_pull(){
 	path=$HOME/Documents/Projects/dotfiles
 	git -C $path pull origin master
 	cp $path/mac/.profile ~/.profile
