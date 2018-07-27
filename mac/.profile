@@ -20,6 +20,10 @@ test -d "${GOPATH}" || mkdir "${GOPATH}"
 test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
 
+# GREP Green Coloring by default  
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;32'
+
 # Visual Studio
 #export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
@@ -42,7 +46,7 @@ export PATH=/usr/local/bin:$PATH
 
 
 
-############################## Functions ##############################
+########################### Functions ##############################
 
 function w (){
 	city=$1
@@ -125,7 +129,7 @@ export NODE_ENV=development
 # alias mongod='sudo mongod'
 
 #Webpack Web Server
-alias wb="webpack-dev-server --hot --inline"
+alias webpack-start="webpack-dev-server --hot --inline"
 
 #new DB commands
 alias dblist="brew services list"
