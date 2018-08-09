@@ -77,14 +77,14 @@ function .profile_push(){
 	git -C $path add .
 	git -C $path commit -m ...
 	git -C $path push
-	echo "Dotfile has been copied to Profile Folder and Updated!"
+	echo "Profile has been copied to Dofiles Folder! and Git Updated!"
 }
 
 function .profile_pull(){
 	path=$HOME/Documents/Projects/dotfiles
 	git -C $path pull origin master
 	cp $path/mac/.profile ~/.profile
-	echo "Profile has been copied to Dofiles Folder! and Git Updated!"
+	echo "Dotfile has been copied to Profile Folder and Updated!"
 }
 
 
@@ -220,14 +220,10 @@ alias lvhp='RAILS_ENV=production rails s -p 3000 -b lvh.me'
 alias lvh_certificate="rails s -b 'ssl://lvh.me:3000?key=localhost.key&cert=localhost.crt'"
 alias compile_prod='rake assets:precompile RAILS_ENV=production'
 
-# Atom
-# alias s="/Applications/Atom.app/Contents/Resources/app/atom.sh"
-
-# Sublime
-alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-
-# Visual Studio
-alias vs=code
+# Editors
+alias atom="/Applications/Atom.app/Contents/Resources/app/atom.sh" # Atom
+alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" # Sublime
+alias vs=code # Visual Studio
 
 # Local commands
 alias p='cd ~/Documents/Projects/'
