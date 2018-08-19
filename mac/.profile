@@ -1,3 +1,21 @@
+######### Sublime Settings
+
+# {
+# 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+# 	"ensure_newline_at_eof_on_save": true,
+# 	"font_face": "Menlo",
+# 	"font_size": 15,
+# 	"ignored_packages":
+# 	[
+# 		"Vintage"
+# 	],
+# 	"theme": "Adaptive.sublime-theme"
+# }
+
+
+
+
+
 ############################## List ##################
 #SEIL      - Capslock key to ESC
 #karabiner - https://github.com/tekezo/Karabiner-Elements/blob/master/usage/README.md
