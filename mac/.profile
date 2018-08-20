@@ -13,6 +13,12 @@
 # }
 
 
+########### 
+# scutil --set ComputerName "7urkm3n"
+# scutil --set LocalHostName "7urkm3n"
+# scutil --set HostName "7urkm3n"
+
+
 
 
 
@@ -82,7 +88,8 @@ function w (){
 
 function git_aware_prompt() {
   echo "Git AWARE PROMT RUNNING !!!"
-  mkdir -p /usr/local/bin/ && cd $_
+  # mkdir -p "$(brew --prefix)" && cd $_
+  cd "$(brew --prefix)"
   git clone git@github.com:7urkm3n/git-aware-prompt.git
   # echo "export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt" >> ~/.profile
   # echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
@@ -184,7 +191,7 @@ fi
 ############# Git branch and commitment shower | Current location etc...
 
 # https://github.com/jimeh/git-aware-prompt
-export GITAWAREPROMPT="/usr/local/bin/git-aware-prompt"
+export GITAWAREPROMPT="$(brew --prefix)/git-aware-prompt"
 source "${GITAWAREPROMPT}/main.sh"
 GVM='$(gvm-prompt "(%s)")'
 PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
@@ -225,7 +232,7 @@ function lvh(){
 
 function reload! () {
 	echo "Reloading bash profile...!"
-	source ~/.bash_profile
+	source ~/.profile
 	echo "Reloaded!!!"
 }
 
