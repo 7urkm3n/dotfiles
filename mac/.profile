@@ -128,8 +128,8 @@ function delete_x(){
 
 ############################## RVM ##############################
 # rvm get stable --auto-dotfiles
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 ################################################ .profile ################################
 # export PATH=/usr/local/bin:$PATH
