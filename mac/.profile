@@ -189,6 +189,8 @@ alias rd-stop="brew services stop redis"
 alias rethink-start="brew services start rethinkdb"
 alias rethink-stop="brew services stop rethinkdb"
 
+alias brewery='brew update && brew upgrade && brew cleanup'
+
 ########## Auto Complete Terminal ###########
 # TAB: menu-complete
 set completion-ignore-case on
