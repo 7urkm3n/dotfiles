@@ -1,16 +1,29 @@
-######### Sublime Settings
+# https://www.alexedwards.net/blog/streamline-your-sublime-text-and-go-workflow
 
+######### Sublime Settings
 # {
+# 	"auto_complete_triggers":
+# 	[
+# 		{
+# 			"characters": "<",
+# 			"selector": "text.html"
+# 		},
+# 		{
+# 			"characters": ".",
+# 			"selector": "source.go"
+# 		}
+# 	],
 # 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 # 	"ensure_newline_at_eof_on_save": true,
 # 	"font_face": "Menlo",
-# 	"font_size": 15,
+# 	"font_size": 16,
 # 	"ignored_packages":
 # 	[
 # 		"Vintage"
 # 	],
 # 	"theme": "Adaptive.sublime-theme"
 # }
+
 
 
 ########### 
@@ -147,6 +160,8 @@ export NODE_ENV=development
 # alias pg-status="pg_ctl -D /usr/local/var/postgres status"
 # alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 # alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+
+# pg_ctl -D /usr/local/var/postgres start
 
 # # MongoDB Commands
 # alias mongops='ps -ax | grep mongo'
