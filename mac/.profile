@@ -16,13 +16,16 @@
 # 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 # 	"ensure_newline_at_eof_on_save": true,
 # 	"font_face": "Menlo",
-# 	"font_size": 16,
+# 	"font_size": 15,
 # 	"ignored_packages":
 # 	[
 # 		"Vintage"
 # 	],
-# 	"theme": "Adaptive.sublime-theme"
+# 	"theme": "Adaptive.sublime-theme",
+
+# 	"show_errors_inline": false // remove inline error on "Comamnd+B"
 # }
+
 
 
 
