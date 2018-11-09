@@ -150,7 +150,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 ################################################ .profile ################################
 # export PATH=/usr/local/bin:$PATH
 
-alias dsstore="find . -name '*.DS_Store' -type f -delete"
+alias dsstore="sudo find . -name '*.DS_Store' -type f -delete"
 #alias deletee="find `pwd` -name '*.' -type f -delete"
 
 
@@ -215,7 +215,7 @@ source "${GITAWAREPROMPT}/main.sh"
 GVM='$(gvm-prompt "(%s)")'
 PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 # export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
-# export PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+# PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 
 # if [ "$(whoami)"='7urkm3n' ]; then
@@ -259,10 +259,10 @@ alias emails='MailHog'
 alias 412='cd $HOME/Documents/Projects/412eats/web-server-rails'
 # alias puma_lvh='puma -b tcp://lvh.me:3000'
 # alias lvh='rails s -p 3000 -b lvh.me'
-alias lvhp='RAILS_ENV=production rails s -p 3000 -b lvh.me'
 # alias lvh='rvmsudo rails server -p 80 -b 0.0.0.0'
+alias lvhp='SECRET_KEY_BASE=xxx RAILS_ENV=production rails s -p 3000 -b lvh.me'
 alias lvh_certificate="rails s -b 'ssl://lvh.me:3000?key=localhost.key&cert=localhost.crt'"
-alias compile_prod='rake assets:precompile RAILS_ENV=production'
+alias compile_assets_production='SECRET_KEY_BASE=xxx RAILS_SERVE_STATIC_FILES=true rake assets:precompile RAILS_ENV=production'
 
 # Editors
 alias atom="/Applications/Atom.app/Contents/Resources/app/atom.sh" # Atom
