@@ -256,7 +256,7 @@ function reload! () {
 }
 
 alias emails='MailHog'
-alias 412='cd $HOME/Documents/Projects/412eats/web-server-rails'
+alias 412='cd $HOME/Documents/Projects/ror/412eats/web-server-rails'
 # alias puma_lvh='puma -b tcp://lvh.me:3000'
 # alias lvh='rails s -p 3000 -b lvh.me'
 alias lvhp='RAILS_ENV=production rails s -p 3000 -b lvh.me'
