@@ -257,10 +257,13 @@ function reload! () {
 
 alias emails='MailHog'
 alias 412='cd $HOME/Documents/Projects/412eats/web-server-rails'
+alias yaprak='cd $HOME/Documents/Projects/Yaprak'
+
 # alias puma_lvh='puma -b tcp://lvh.me:3000'
 # alias lvh='rails s -p 3000 -b lvh.me'
 # alias lvh='rvmsudo rails server -p 80 -b 0.0.0.0'
 alias lvhp='SECRET_KEY_BASE=xxx RAILS_ENV=production rails s -p 3000 -b lvh.me'
+alias lvhpp='SECRET_KEY_BASE=xxx RAILS_ENV=production rails s -p 3000'
 alias lvh_certificate="rails s -b 'ssl://lvh.me:3000?key=localhost.key&cert=localhost.crt'"
 alias compile_assets_production='SECRET_KEY_BASE=xxx RAILS_SERVE_STATIC_FILES=true rake assets:precompile RAILS_ENV=production'
 
