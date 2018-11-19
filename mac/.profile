@@ -256,6 +256,7 @@ function reload! () {
 }
 
 alias emails='MailHog'
+
 alias 412='cd $HOME/Documents/Projects/412eats/web-server-rails'
 alias yaprak='cd $HOME/Documents/Projects/Yaprak'
 
