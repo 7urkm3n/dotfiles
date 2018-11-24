@@ -49,6 +49,16 @@
 # source ~/.profile # Get the paths
 # source ~/.bashrc  # get aliases
 
+# https://github.com/creationix/nvm#install-script
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# export NVM_DIR="$HOME/.nvm"
+# . "/usr/local/opt/nvm/nvm.sh"
 
 # Go Development
 export GOPATH="$HOME/Documents/Projects/golang"
