@@ -62,9 +62,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # Go Development
 export GOPATH="$HOME/Documents/Projects/golang"
-export GOROOT="$(brew --prefix golang)/libexec"
+# export GOROOT="$(brew --prefix golang)/libexec"
 export GOBIN="$GOPATH/bin"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+# export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export PATH="$PATH:${GOPATH}/bin"
 
 test -d "${GOPATH}" || mkdir "${GOPATH}"
 test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
