@@ -254,10 +254,15 @@ PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$g
 
 
 function lvh(){
-	port="3000"
+	if [[ $1 ]]; then
+		port=$1
+	else
+		port="3000"
+	fi
+
 	echo "Rails Server Runs at port:" $port
 	# rails s -p $port -b lvh.me
-	foreman start -f ./Procfile.development
+	foreman start -f ./Procfile.development -p $port
 }
 
 function reload! () {
