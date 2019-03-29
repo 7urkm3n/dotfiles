@@ -275,13 +275,17 @@ alias cr='clear; rspec'
 function gopush(){
 	# branch=$git_branch | tr -d \)\(
 	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-	echo "Pushing to:" $txtred $branch
+	echo "****************************"
+	echo "Pushing to:" $txtrst $branch
+	echo "****************************"
 	git push origin $branch
 }
 
 function gopull(){
 	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-	echo "Pulling From:" $txtred $branch
+	echo "******************************"
+	echo "Pulling From:" $txtrst $branch
+	echo "******************************"
 	git pull origin $branch
 }
 
