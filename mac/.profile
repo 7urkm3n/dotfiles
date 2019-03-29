@@ -1,3 +1,4 @@
+# 70c2189e5786d1ac9cca41e73d4b4110999c0342
 # https://www.alexedwards.net/blog/streamline-your-sublime-text-and-go-workflow
 
 ######### Sublime Settings
@@ -26,17 +27,10 @@
 # 	"show_errors_inline": false // remove inline error on "Comamnd+B"
 # }
 
-
-
-
 ########### 
 # scutil --set ComputerName "7urkm3n"
 # scutil --set LocalHostName "7urkm3n"
 # scutil --set HostName "7urkm3n"
-
-
-
-
 
 ############################## List ##################
 #SEIL      - Capslock key to ESC
@@ -70,32 +64,24 @@ export PATH="$PATH:${GOPATH}/bin"
 test -d "${GOPATH}" || mkdir "${GOPATH}"
 test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
-
 # GREP Green Coloring by default  
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 
 # Visual Studio
-#export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # RVM
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/sbin:$PATH"
 
 # Git local runner
 export PATH=/usr/local/bin:$PATH
-
 
 # alias python='python2'
 ### Emailing
 # export SMTP_USER=""
 # export SMTP_PASSWORD=""
 # export SMTP_ADDRESS=""
-
-
-
-
 
 ########################### Functions ##############################
 
@@ -121,7 +107,6 @@ function git_aware_prompt() {
   # echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
 }
 
-
 function .profile_push(){
 	path=$HOME/Documents/Projects/dotfiles
 	cp ~/.profile $path/mac
@@ -137,7 +122,6 @@ function .profile_pull(){
 	cp $path/mac/.profile ~/.profile
 	echo "Dotfile has been copied to Profile Folder and Updated!"
 }
-
 
 ## delete file in a current folder
 function delete_x(){
@@ -155,15 +139,12 @@ function delete_x(){
 
 ############################## RVM ##############################
 # rvm get stable --auto-dotfiles
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 ################################################ .profile ################################
 # export PATH=/usr/local/bin:$PATH
 
 alias dsstore="sudo find . -name '*.DS_Store' -type f -delete"
 #alias deletee="find `pwd` -name '*.' -type f -delete"
-
 
 export EDITOR=vim
 # export NODE_ENV=production
@@ -216,8 +197,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
 
-
-
 ############# Git branch and commitment shower | Current location etc...
 
 # https://github.com/jimeh/git-aware-prompt
@@ -227,7 +206,6 @@ GVM='$(gvm-prompt "(%s)")'
 PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 # export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
 # PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-
 
 # if [ "$(whoami)"='7urkm3n' ]; then
 #   RED='\e[0;31m'
@@ -244,14 +222,10 @@ PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$g
 #   PS1="[${GREEN}\u@\h:\W ${RED}${GIT_BRANCH}$NC ${GVM}] \n >"
 # fi
 
-
-
 ##################### more exaples
 # export PS1='\[\e[0;31m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$\E[5m '
 # export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 # export PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-
-
 
 function lvh(){
 	if [[ $1 ]]; then
@@ -335,3 +309,8 @@ alias gc='git checkout'
 # Custom Git
 alias gcd='git checkout development'
 alias gcr='git checkout rovshen'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
