@@ -118,7 +118,8 @@ function .profile_push(){
 	git -C $path add .
 	git -C $path commit -m ...
 	git -C $path push
-	echo "Profile has been copied to Dofiles Folder! and Git Updated!"
+	
+	echo $txtcyn "Profile has been copied to Dofiles Folder! and Git Updated!"
 }
 
 function .profile_pull(){
