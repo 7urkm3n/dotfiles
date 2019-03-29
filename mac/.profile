@@ -1,4 +1,4 @@
-# 99b997a89eecd56b6968da52301007673075b0ae
+# 155fe29a8cdd98d59e4cdf1c5c8636699f351404
 # https://www.alexedwards.net/blog/streamline-your-sublime-text-and-go-workflow
 
 ######### Sublime Settings
@@ -42,6 +42,11 @@
 ##### These lines should be in .bash_profile to load the .profile
 # source ~/.profile # Get the paths
 # source ~/.bashrc  # get aliases
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "/Users/7urkm3n/.gvm/scripts/gvm" ]] && source "/Users/7urkm3n/.gvm/scripts/gvm"
 
 # https://github.com/creationix/nvm#install-script
 export NVM_DIR="$HOME/.nvm"
@@ -167,6 +172,7 @@ alias webpack-start="webpack-dev-server --hot --inline"
 
 #new DB commands
 alias dblist="brew services list"
+
 alias mongo-start="brew services start mongodb"
 alias mongo-stop="brew services stop mongodb"
 
@@ -183,6 +189,11 @@ alias rd-stop="brew services stop redis"
 
 alias rethink-start="brew services start rethinkdb"
 alias rethink-stop="brew services stop rethinkdb"
+
+alias mailhog-start="brew services stop mailhog"
+alias mailhog-stop="brew services start mailhog"
+alias mailhog='MailHog' #logged
+
 
 alias brewery='brew update && brew upgrade && brew cleanup'
 
@@ -202,31 +213,10 @@ fi
 # https://github.com/jimeh/git-aware-prompt
 export GITAWAREPROMPT="/usr/local/bin/git-aware-prompt"
 source "${GITAWAREPROMPT}/main.sh"
-GVM='$(gvm-prompt "(%s)")'
 PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-# export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
-# PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
-# if [ "$(whoami)"='7urkm3n' ]; then
-#   RED='\e[0;31m'
-#   GREEN='\e[0;32m'
-#   NC='\e[0m'
-#   GIT_BRANCH='$(__git_ps1 "(%s)")'
-#   PS1="[${RED}\u@\h:\W \t.\d${GREEN}${GIT_BRANCH}$NC 123 ${GVM}] \n >"
-# else
-#   RED='\e[0;31m'
-#   GREEN='\e[0;32m'
-#   NC='\e[0m'
-#   GIT_BRANCH='$(__git_ps1 "(%s)")'
-#   GVM='$(gvm-prompt "(%s)")'
-#   PS1="[${GREEN}\u@\h:\W ${RED}${GIT_BRANCH}$NC ${GVM}] \n >"
-# fi
 
-##################### more exaples
-# export PS1='\[\e[0;31m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$\E[5m '
-# export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-# export PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-
+# Rails Server
 function lvh(){
 	if [[ $1 ]]; then
 		port=$1
@@ -236,6 +226,11 @@ function lvh(){
 
 	echo "Rails Server Runs at port:" $port
 	# rails s -p $port -b lvh.me
+
+	if ! [ -x "$(command -v foreman)" ]; then
+	  echo "Foreman wasn't installed, Instaling foreman ..."
+	  gem install foreman
+	fi
 	foreman start -f ./Procfile.development -p $port
 }
 
@@ -245,10 +240,10 @@ function reload! () {
 	echo "Reloaded!!!"
 }
 
-alias emails='MailHog'
 
 alias 412='cd $HOME/Documents/Projects/412eats/web-server-rails'
 alias yaprak='cd $HOME/Documents/Projects/Yaprak'
+alias blueprint='cd $HOME/Documents/Projects/Blueprint'
 
 # alias puma_lvh='puma -b tcp://lvh.me:3000'
 # alias lvh='rails s -p 3000 -b lvh.me'
@@ -258,9 +253,9 @@ alias lvhpp='SECRET_KEY_BASE=xxx RAILS_ENV=production rails s -p 3000'
 alias lvh_certificate="rails s -b 'ssl://lvh.me:3000?key=localhost.key&cert=localhost.crt'"
 alias compile_assets_production='RAILS_ENV=production SECRET_KEY_BASE=xxx RAILS_SERVE_STATIC_FILES=true rake assets:precompile'
 
-# Editors
+# IDE's
 alias atom="/Applications/Atom.app/Contents/Resources/app/atom.sh" # Atom
-alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" # Sublime
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" # Sublime
 alias vs=code # Visual Studio
 
 # Local commands
@@ -275,8 +270,8 @@ alias l='ls -G'
 # alias r='rspec'
 alias cr='clear; rspec'
 
-# Github
 
+# Git Commands
 function gopush(){
 	# branch=$git_branch | tr -d \)\(
 	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
@@ -309,8 +304,3 @@ alias gc='git checkout'
 # Custom Git
 alias gcd='git checkout development'
 alias gcr='git checkout rovshen'
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
