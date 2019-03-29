@@ -260,7 +260,7 @@ alias vs=code # Visual Studio
 
 # Local commands
 alias p='cd ~/Documents/Projects/'
-alias .profile='s ~/.profile'
+alias .profile='vs ~/.profile'
 alias d1='cd /Volumes/Main\ disk'
 alias lla='ls -la -G'
 alias la='ls -a -G'
