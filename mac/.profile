@@ -1,4 +1,4 @@
-# 8968d74b7f317b7a4230b179acfc2070eb0aa511
+# f9fc67a70a0c66b4906d250a2e44d86b4061c9e3
 # https://www.alexedwards.net/blog/streamline-your-sublime-text-and-go-workflow
 
 ######### Sublime Settings
