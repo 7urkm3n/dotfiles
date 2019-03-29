@@ -126,7 +126,7 @@ function .profile_pull(){
 	path=$HOME/Documents/Projects/dotfiles
 	git -C $path pull origin master
 	cp $path/mac/.profile ~/.profile
-	echo "Dotfile has been copied to Profile Folder and Updated!"
+	echo $txtcyn "Dotfile has been copied to Profile Folder and Updated!"
 }
 
 ## delete file in a current folder
@@ -277,7 +277,7 @@ function gopush(){
 	# branch=$git_branch | tr -d \)\(
 	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 	echo "****************************"
-	echo "Pushing to:" $txtrst $branch
+	echo "Pushing to:" $txtcyn $branch
 	echo "****************************"
 	git push origin $branch
 }
@@ -285,7 +285,7 @@ function gopush(){
 function gopull(){
 	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 	echo "******************************"
-	echo "Pulling From:" $txtrst $branch
+	echo "Pulling From:" $txtcyn $branch
 	echo "******************************"
 	git pull origin $branch
 }
