@@ -1,3 +1,4 @@
+# 401154c718d5a92877b977ba6bb16a4253ff1bee
 # VS - Settings[GistID]: fb503603a8bff8027ee81fe9076e2422
 # https://www.alexedwards.net/blog/streamline-your-sublime-text-and-go-workflow
 
