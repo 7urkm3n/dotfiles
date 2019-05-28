@@ -48,11 +48,11 @@
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "/Users/7urkm3n/.gvm/scripts/gvm" ]] && source "/Users/7urkm3n/.gvm/scripts/gvm"
+rvm_silence_path_mismatch_check_flag=1
 
 # https://github.com/creationix/nvm#install-script
-export NVM_DIR="$HOME/.nvm"
+ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -302,6 +302,7 @@ alias gm='git merge'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gc='git checkout'
+alias gf='git fetch'
 # alias gk='gitk --all&'
 # alias gx='gitx --all'
 # alias got='git '
