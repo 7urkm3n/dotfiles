@@ -77,19 +77,30 @@ function git_aware_prompt() {
 
 function .profile_push(){
 	path=$HOME/Documents/Projects/dotfiles
-	cp ~/.profile $path/mac
+	# cp ~/.profile $path/mac
 	git -C $path add .
 	git -C $path commit -m ...
 	git -C $path push
+
+	cp $path/mac/.profile ~/.profile
+	source ~/.profile
 	
-	echo $txtcyn "Profile has been copied to Dofiles Folder! and Git Updated!"
+	echo $txtcyn "Profile - Pushed to Github"
 }
 
 function .profile_pull(){
 	path=$HOME/Documents/Projects/dotfiles
 	git -C $path pull origin master
 	cp $path/mac/.profile ~/.profile
-	echo $txtcyn "Dotfile has been copied to Profile Folder and Updated!"
+	source ~/.profile
+	echo $txtcyn "Profile - Pulled from Github"
+}
+
+function .profile_copy(){
+	path=$HOME/Documents/Projects/dotfiles
+	cp $path/mac/.profile ~/.profile
+	source ~/.profile
+	echo $txtcyn "Profile - Copied and Sourced"
 }
 
 ## delete file in a current folder
@@ -176,7 +187,7 @@ alias vs=code # Visual Studio
 
 # Local commands
 alias p='cd ~/Documents/Projects/'
-alias .profile='vs ~/.profile'
+alias .profile='vs $HOME/Documents/Projects/dotfiles/mac/.profile'
 alias d1='cd /Volumes/Main\ disk'
 alias lla='ls -la -G'
 alias la='ls -a -G'
