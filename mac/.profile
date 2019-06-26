@@ -1,8 +1,3 @@
-########### 
-# scutil --set ComputerName "7urkm3n"
-# scutil --set LocalHostName "7urkm3n"
-# scutil --set HostName "7urkm3n"
-
 ##### These lines should be in .bash_profile to load the .profile
 #[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" #Load default .profile
 source "$HOME/Documents/Projects/dotfiles/mac/.db_commands" 
@@ -10,20 +5,21 @@ source "$HOME/Documents/Projects/dotfiles/mac/.git_commands"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export NVM_DIR="$HOME/.nvm"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-[[ -s "/Users/7urkm3n/.gvm/scripts/gvm" ]] && source "/Users/7urkm3n/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 rvm_silence_path_mismatch_check_flag=1
 
 # https://github.com/creationix/nvm#install-script
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Go Development
 # export GOROOT="$(brew --prefix golang)/libexec"
 export GOPATH="$HOME/Documents/Projects/golang/golib"
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:${GOPATH}/bin"
-export GOPATH="$HOME/Documents/Projects/golang/projects"
+export GOPATH="$HOME/Documents/Projects/golang/gocode"
 
 # test -d "${GOPATH}" || mkdir "${GOPATH}"
 # test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
@@ -67,12 +63,10 @@ function w (){
 	fi
 }
 
-function git_aware_prompt() {
-  echo "Git AWARE PROMT RUNNING !!!"
-  mkdir -p "/usr/local/bin" && git -C $_ clone git@github.com:7urkm3n/git-aware-prompt.git
-  # git clone git@github.com:7urkm3n/git-aware-prompt.git
-  # echo "export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt" >> ~/.profile
-  # echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
+function reload! () {
+	echo $txtcyn "Reloading bash profile...!"
+	source ~/.profile
+	echo $txtcyn "Reloaded!"
 }
 
 function .profile_push(){
@@ -83,8 +77,8 @@ function .profile_push(){
 	git -C $path push
 
 	cp $path/mac/.profile ~/.profile
-	source ~/.profile
-	
+	reload!
+
 	echo $txtcyn "Profile - Pushed to Github"
 }
 
@@ -92,14 +86,14 @@ function .profile_pull(){
 	path=$HOME/Documents/Projects/dotfiles
 	git -C $path pull origin master
 	cp $path/mac/.profile ~/.profile
-	source ~/.profile
+	reload!
 	echo $txtcyn "Profile - Pulled from Github"
 }
 
 function .profile_copy(){
 	path=$HOME/Documents/Projects/dotfiles
 	cp $path/mac/.profile ~/.profile
-	source ~/.profile
+	reload!
 	echo $txtcyn "Profile - Copied and Sourced"
 }
 
@@ -144,19 +138,14 @@ function lvh(){
 	fi
 
 	echo "Rails Server Runs at port:" $port
-	# rails s -p $port -b lvh.me
-
+	
 	if ! [ -x "$(command -v foreman)" ]; then
 	  echo "Foreman wasn't installed, Instaling foreman ..."
 	  gem install foreman
 	fi
-	foreman start -f ./Procfile.development -p $port
-}
 
-function reload! () {
-	echo "Reloading bash profile...!"
-	source ~/.profile
-	echo "Reloaded!!!"
+	# rails s -p $port -b lvh.me
+	foreman start -f ./Procfile.development -p $port
 }
 
 alias dsstore="sudo find . -name '*.DS_Store' -type f -delete"
