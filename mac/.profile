@@ -1,46 +1,12 @@
-# https://www.alexedwards.net/blog/streamline-your-sublime-text-and-go-workflow
-
-######### Sublime Settings
-# {
-# 	"auto_complete_triggers":
-# 	[
-# 		{
-# 			"characters": "<",
-# 			"selector": "text.html"
-# 		},
-# 		{
-# 			"characters": ".",
-# 			"selector": "source.go"
-# 		}
-# 	],
-# 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
-# 	"ensure_newline_at_eof_on_save": true,
-# 	"font_face": "Menlo",
-# 	"font_size": 15,
-# 	"ignored_packages":
-# 	[
-# 		"Vintage"
-# 	],
-# 	"theme": "Adaptive.sublime-theme",
-
-# 	"show_errors_inline": false // remove inline error on "Comamnd+B"
-# }
-
 ########### 
 # scutil --set ComputerName "7urkm3n"
 # scutil --set LocalHostName "7urkm3n"
 # scutil --set HostName "7urkm3n"
 
-############################## List ##################
-#SEIL      - Capslock key to ESC
-#karabiner - https://github.com/tekezo/Karabiner-Elements/blob/master/usage/README.md
-#Skitch    - ScreenSHot
-#Slack
-#[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" #Load default .profile
-
 ##### These lines should be in .bash_profile to load the .profile
-# source ~/.profile # Get the paths
-# source ~/.bashrc  # get aliases
+#[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" #Load default .profile
+source "$HOME/Documents/Projects/dotfiles/mac/.db_commands" 
+source "$HOME/Documents/Projects/dotfiles/mac/.git_commands" 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -51,12 +17,6 @@ rvm_silence_path_mismatch_check_flag=1
 # https://github.com/creationix/nvm#install-script
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# export NVM_DIR="$HOME/.nvm"
-# . "/usr/local/opt/nvm/nvm.sh"
 
 # Go Development
 # export GOROOT="$(brew --prefix golang)/libexec"
@@ -80,6 +40,10 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Git local runner
 export PATH=/usr/local/bin:$PATH
+
+export EDITOR=vim
+# export NODE_ENV=production
+export NODE_ENV=development
 
 # alias python='python2'
 ### Emailing
@@ -142,61 +106,6 @@ function delete_x(){
 	# find . -name "*.*" -print
 }
 
-############################## RVM ##############################
-# rvm get stable --auto-dotfiles
-
-################################################ .profile ################################
-# export PATH=/usr/local/bin:$PATH
-
-alias dsstore="sudo find . -name '*.DS_Store' -type f -delete"
-#alias deletee="find `pwd` -name '*.' -type f -delete"
-
-export EDITOR=vim
-# export NODE_ENV=production
-export NODE_ENV=development
-
-# # PostgreDB
-# alias pg-help="pg_ctl --help"
-# alias pg-status="pg_ctl -D /usr/local/var/postgres status"
-# alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-# alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-
-# pg_ctl -D /usr/local/var/postgres start
-
-# # MongoDB Commands
-# alias mongops='ps -ax | grep mongo'
-# alias mongod='sudo mongod'
-
-#Webpack Web Server
-alias webpack-start="webpack-dev-server --hot --inline"
-
-#new DB commands
-alias dblist="brew services list"
-
-alias mongo-start="brew services start mongodb"
-alias mongo-stop="brew services stop mongodb"
-
-alias pg-start="brew services start postgres"
-alias pg-restart="brew services restart postgres"
-alias pg-stop="brew services stop postgres"
-
-alias mq-start="brew services start mysql"
-alias mq-stop="brew services stop mysql"
-
-alias rd-start="brew services start redis"
-alias rd-restart="brew services stop redis"
-alias rd-stop="brew services stop redis"
-
-alias rethink-start="brew services start rethinkdb"
-alias rethink-stop="brew services stop rethinkdb"
-
-alias mailhog-start="brew services stop mailhog"
-alias mailhog-stop="brew services start mailhog"
-alias mailhog='MailHog' #logged
-
-
-alias brewery='brew update && brew upgrade && brew cleanup'
-
 ########## Auto Complete Terminal ###########
 # TAB: menu-complete
 set completion-ignore-case on
@@ -209,7 +118,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 ############# Git branch and commitment shower | Current location etc...
-
 # https://github.com/jimeh/git-aware-prompt
 export GITAWAREPROMPT="/usr/local/bin/git-aware-prompt"
 source "${GITAWAREPROMPT}/main.sh"
@@ -240,10 +148,18 @@ function reload! () {
 	echo "Reloaded!!!"
 }
 
+alias dsstore="sudo find . -name '*.DS_Store' -type f -delete"
+#alias deletee="find `pwd` -name '*.' -type f -delete"
+
+alias brewery='brew update && brew upgrade && brew cleanup'
+
+#Webpack Web Server
+alias webpack-start="webpack-dev-server --hot --inline"
 
 alias 412='cd $HOME/Documents/Projects/412eats/web-server-rails'
 alias yaprak='cd $HOME/Documents/Projects/Yaprak'
 alias blueprint='cd $HOME/Documents/Projects/Blueprint'
+alias goblueprint='cd $HOME/Documents/Projects/golang/gocode/src/github.com/BlueprintNYC/ECA-Server-API'
 
 # alias puma_lvh='puma -b tcp://lvh.me:3000'
 # alias lvh='rails s -p 3000 -b lvh.me'
@@ -269,43 +185,3 @@ alias l='ls -G'
 # Rspec
 # alias r='rspec'
 alias cr='clear; rspec'
-
-
-# Git Commands
-function gopush(){
-	# branch=$git_branch | tr -d \)\(
-	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-	echo "****************************"
-	echo "Pushing to:" $txtcyn $branch
-	echo "****************************"
-	git push origin $branch
-}
-
-function gopull(){
-	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-	echo "******************************"
-	echo "Pulling From:" $txtcyn $branch
-	echo "******************************"
-	git pull origin $branch
-}
-
-# alias gopush="git push origin \$git_branch"
-# alias gopull='git pull origin'
-alias goh='git push heroku master'
-alias gs='git status'
-alias gaa='git add .'
-alias gb='git branch'
-alias gm='git merge'
-# alias gc='git commit'
-alias gcm='git commit -m'
-alias gd='git diff'
-alias gc='git checkout'
-alias gf='git fetch'
-# alias gk='gitk --all&'
-# alias gx='gitx --all'
-# alias got='git '
-# alias get='git '
-
-# Custom Git
-alias gcd='git checkout development'
-alias gcr='git checkout rovshen'
