@@ -1,5 +1,3 @@
-# 401154c718d5a92877b977ba6bb16a4253ff1bee
-# VS - Settings[GistID]: fb503603a8bff8027ee81fe9076e2422
 # https://www.alexedwards.net/blog/streamline-your-sublime-text-and-go-workflow
 
 ######### Sublime Settings
@@ -51,7 +49,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 rvm_silence_path_mismatch_check_flag=1
 
 # https://github.com/creationix/nvm#install-script
- export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
@@ -61,14 +59,14 @@ rvm_silence_path_mismatch_check_flag=1
 # . "/usr/local/opt/nvm/nvm.sh"
 
 # Go Development
-export GOPATH="$HOME/Documents/Projects/golang"
 # export GOROOT="$(brew --prefix golang)/libexec"
+export GOPATH="$HOME/Documents/Projects/golang/golib"
 export GOBIN="$GOPATH/bin"
-# export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 export PATH="$PATH:${GOPATH}/bin"
+export GOPATH="$HOME/Documents/Projects/golang/projects"
 
-test -d "${GOPATH}" || mkdir "${GOPATH}"
-test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
+# test -d "${GOPATH}" || mkdir "${GOPATH}"
+# test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
 # GREP Green Coloring by default  
 export GREP_OPTIONS='--color=auto'
