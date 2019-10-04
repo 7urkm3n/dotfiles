@@ -1,7 +1,8 @@
 #new DB commands
-alias dblist="brew services list"
+alias service-list="brew services list"
 
 alias mongo-start="brew services start mongodb"
+alias mongo-restart="brew services restart mongodb"
 alias mongo-stop="brew services stop mongodb"
 
 alias pg-start="brew services start postgres"
@@ -9,18 +10,25 @@ alias pg-restart="brew services restart postgres"
 alias pg-stop="brew services stop postgres"
 
 alias mq-start="brew services start mysql"
+alias mq-restart="brew services restart mysql"
 alias mq-stop="brew services stop mysql"
 
 alias rd-start="brew services start redis"
-alias rd-restart="brew services stop redis"
+alias rd-restart="brew services restart redis"
 alias rd-stop="brew services stop redis"
 
 alias rethink-start="brew services start rethinkdb"
+alias rethink-restart="brew services restart rethinkdb"
 alias rethink-stop="brew services stop rethinkdb"
 
-alias mailhog-start="brew services stop mailhog"
-alias mailhog-stop="brew services start mailhog"
 alias mailhog='MailHog' #logged
+alias mailhog-start="brew services start mailhog"
+alias mailhog-restart="brew services restart mailhog"
+alias mailhog-stop="brew services stop mailhog"
+
+alias elsearch-start="brew services start elasticsearch"
+alias elsearch-restart="brew services restart elasticsearch"
+alias elsearch-stop="brew services stop elasticsearch"
 
 
 # # PostgreDB
