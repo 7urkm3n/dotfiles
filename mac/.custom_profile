@@ -13,7 +13,6 @@ export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 rvm_silence_path_mismatch_check_flag=1
 
-# https://github.com/creationix/nvm#install-script
 
 # Go Development
 # export GOROOT="$(brew --prefix golang)/libexec"

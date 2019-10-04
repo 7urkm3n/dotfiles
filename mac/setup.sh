@@ -4,6 +4,8 @@
 # 2) brew install cmake also supposed to be added
 # 3) cp command doesnt work in this file check init() function!
 # 4) install GVM-golang `bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)`
+# 5) install NVM https://github.com/creationix/nvm#install-script
+# 6) install RVM \curl -sSL https://get.rvm.io | bash
 
 ########### 
 # scutil --set ComputerName "7urkm3n"
