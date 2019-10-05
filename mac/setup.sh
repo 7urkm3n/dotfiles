@@ -5,7 +5,7 @@
 # scutil --set HostName "7urkm3n"
 
 function git_aware_prompt() {
-    echo "Git AWARE PROMT RUNNING !!!"
+    echo "Git aware promt installing !!!"
     mkdir -p "/usr/local/bin" && git -C $_ clone git@github.com:7urkm3n/git-aware-prompt.git
     # git clone git@github.com:7urkm3n/git-aware-prompt.git
     # echo "export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt" >> ~/.profile
@@ -37,7 +37,7 @@ function brew_install_git_auto_complete() {
 
 function install_gvm() {
   echo "Installing `gvm`"
-  bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+  eval "bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)"
 }
 
 function install_rvm() {
@@ -60,7 +60,19 @@ function install_dbs() {
   echo "Installing Elasticsearch" && brew install elasticsearch
 }
 
+function creating_work_folders() {
+  echo "Creating Work Folders"
+  divider="....................."
+  path=$HOME/Documents/Projects/
+  gopath=$path/golang/
 
+  echo $divider
+  echo "Golang: gocode and golib"
+  mkdir -p $gopath/gocode/src $gopath/gocode/bin $gopath/gocode/pkg
+  mkdir -p $gopath/golib/src $gopath/golib/bin $gopath/golib/pkg
+
+  echo $divider
+}
 
 function current_machine_username() {
   echo "Cheching computer, host and localhost names"
@@ -88,11 +100,14 @@ function current_machine_username() {
 
 function init() {
   echo "Init Executed"
-  installing_brew
-  current_machine_username
-  install_dbs
+  # installing_brew
+  # current_machine_username
+  # install_dbs
   # git_aware_prompt()
   # cp .custom_profile ~/
+
+  # creating_work_folders
+  git_aware_prompt
 }
 
 init
