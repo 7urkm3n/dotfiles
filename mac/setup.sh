@@ -4,6 +4,8 @@
 # scutil --set LocalHostName "7urkm3n"
 # scutil --set HostName "7urkm3n"
 
+divider="....................."
+
 function git_aware_prompt() {
     echo "Git aware promt installing !!!"
     mkdir -p "/usr/local/bin" && git -C $_ clone git@github.com:7urkm3n/git-aware-prompt.git
@@ -11,7 +13,6 @@ function git_aware_prompt() {
     # echo "export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt" >> ~/.profile
     # echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
 }
-
 
 function install_gems() {
 	if ! [ -x "$(command -v foreman)" ]; then
@@ -42,12 +43,12 @@ function install_gvm() {
 
 function install_rvm() {
   echo "Installing `rvm`"
-  \curl -sSL https://get.rvm.io | bash
+  eval "\curl -sSL https://get.rvm.io | bash"
 }
 
 function install_nvm() {
   echo "Installing `nvm`"
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+  eval "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash"
 }
 
 function install_dbs() {
@@ -62,7 +63,7 @@ function install_dbs() {
 
 function creating_work_folders() {
   echo "Creating Work Folders"
-  divider="....................."
+  
   path=$HOME/Documents/Projects/
   gopath=$path/golang/
 
@@ -97,7 +98,6 @@ function current_machine_username() {
   fi
 }
 
-
 function init() {
   echo "Init Executed"
   # installing_brew
@@ -107,7 +107,7 @@ function init() {
   # cp .custom_profile ~/
 
   # creating_work_folders
-  git_aware_prompt
+  # git_aware_prompt
 }
 
 init
