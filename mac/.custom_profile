@@ -156,7 +156,7 @@ alias brewery='brew update && brew upgrade && brew cleanup'
 #Webpack Web Server
 alias webpack-start="webpack-dev-server --hot --inline"
 
-alias 412='cd $HOME/Documents/Projects/412eats/web-server-rails'
+alias 412='cd $HOME/Documents/Projects/412eats'
 alias yaprak='cd $HOME/Documents/Projects/Yaprak'
 alias blueprint='cd $HOME/Documents/Projects/Blueprint'
 alias goblueprint='cd $HOME/Documents/Projects/golang/gocode/src/github.com/BlueprintNYC/ECA-Server-API'
