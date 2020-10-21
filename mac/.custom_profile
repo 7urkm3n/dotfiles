@@ -1,7 +1,8 @@
 #karabiner - https://github.com/tekezo/Karabiner-Elements/blob/master/README.md
 
-##### These lines should be in .bash_profile to load the .profile
-#[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" #Load default .profile
+##### These lines should be in .bash_profile to load the
+# [[ -s "$HOME/Documents/Projects/dotfiles/mac/.custom_profile" ]] && source "$HOME/Documents/Projects/dotfiles/mac/.custom_profile" # Load the default
+
 source "$HOME/Documents/Projects/dotfiles/mac/.db_commands" 
 source "$HOME/Documents/Projects/dotfiles/mac/.git_commands" 
 
@@ -63,9 +64,8 @@ function w (){
 }
 
 function reload! () {
-	path=$HOME/Documents/Projects/dotfiles
 	echo $txtcyn "Reloading bash profile...!"
-	source ~/.profile
+	source ~/.bash_profile
 	echo $txtcyn "Reloaded!"
 }
 
