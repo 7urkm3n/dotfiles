@@ -14,6 +14,12 @@ export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 rvm_silence_path_mismatch_check_flag=1
 
+# Use `pyenv` for python !!!
+# https://realpython.com/intro-to-pyenv/
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 
 # Go Development
 # export GOROOT="$(brew --prefix golang)/libexec"
@@ -41,7 +47,6 @@ export PATH=/usr/local/bin:$PATH
 export EDITOR=vim
 
 
-# alias python='python2'
 ### Emailing
 # export SMTP_USER=""
 # export SMTP_PASSWORD=""
@@ -82,6 +87,7 @@ function .profile_push(){
 	echo $txtcyn "Profile - Pushed to Github"
 }
 
+# .profile_pull uses github to pull last master commit
 function .profile_pull(){
 	path=$HOME/Documents/Projects/dotfiles
 	git -C $path pull origin master
@@ -90,6 +96,7 @@ function .profile_pull(){
 	echo $txtcyn "Profile - Pulled from Github"
 }
 
+# .profile_copy copies .profile file to `~/`
 function .profile_copy(){
 	path=$HOME/Documents/Projects/dotfiles
 	cp $path/mac/.profile ~/.profile
