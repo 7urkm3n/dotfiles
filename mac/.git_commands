@@ -18,6 +18,7 @@ alias gf='git fetch'
 # Custom Git
 alias gcd='git checkout development'
 alias gcr='git checkout rovshen'
+alias cdr="cd $(git rev-parse --show-toplevel)"
 
 # Git Commands
 function gopush(){
