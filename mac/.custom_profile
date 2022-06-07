@@ -1,76 +1,31 @@
-#karabiner - https://github.com/tekezo/Karabiner-Elements/blob/master/README.md
-
-##### These lines should be in .bash_profile to load the
-# [[ -s "$HOME/Documents/Projects/dotfiles/mac/.custom_profile" ]] && source "$HOME/Documents/Projects/dotfiles/mac/.custom_profile" # Load the default
-
-source "$HOME/Documents/Projects/dotfiles/mac/.db_commands" 
-source "$HOME/Documents/Projects/dotfiles/mac/.git_commands" 
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export NVM_DIR="$HOME/.nvm"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-[[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-rvm_silence_path_mismatch_check_flag=1
-
-# Use `pyenv` for python !!!
-# https://realpython.com/intro-to-pyenv/
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-
-# Go Development
-# export GOROOT="$(brew --prefix golang)/libexec"
-export GOPATH="$HOME/Documents/Projects/golang/golib"
-export GOBIN="$GOPATH/bin"
-export PATH="$PATH:${GOPATH}/bin"
-export GOPATH="$HOME/Documents/Projects/golang/gocode"
-
-# test -d "${GOPATH}" || mkdir "${GOPATH}"
-# test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
-
-# GREP Green Coloring by default  
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;32'
-
-# Visual Studio
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
-# RVM
-export PATH="/usr/local/sbin:$PATH"
-
-# Git local runner
-export PATH=/usr/local/bin:$PATH
-
-export EDITOR=vim
-
+source "$HOME/Documents/Projects/dotfiles/mac/.env_loads"
+source "$HOME/Documents/Projects/dotfiles/mac/.db_commands"
+source "$HOME/Documents/Projects/dotfiles/mac/.git_commands"
 
 ### Emailing
 # export SMTP_USER=""
 # export SMTP_PASSWORD=""
 # export SMTP_ADDRESS=""
 
-########################### Functions ##############################
 
+########################### Functions ##############################
 function w (){
 	city=$1
 	metrics=$2
 	if [[ $city = 'c' ]]; then
-		curl http://wttr.in?m
+		curl "https://wttr.in?m"
 	elif [[ $metrics = 'c' ]]; then
-		curl http://wttr.in/$city?m
+		curl "https://wttr.in/$city?m"
 	elif [[ $city ]]; then
-		curl http://wttr.in/$city
+		curl "https://wttr.in/$city"
 	else
-		curl http://wttr.in
+		curl https://wttr.in
 	fi
 }
 
-function reload! () {
+function reload!(){
 	echo $txtcyn "Reloading bash profile...!"
-	source ~/.bash_profile
+	source ~/.profile
 	echo $txtcyn "Reloaded!"
 }
 
@@ -125,15 +80,15 @@ set show-all-if-ambiguous on
 
 # Git auto complete
 # brew install git && brew install bash-completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-. $(brew --prefix)/etc/bash_completion
-fi
+# if [ -f $(brew --prefix)/etc/bash_completion ]; then
+# . $(brew --prefix)/etc/bash_completion
+# fi
 
 ############# Git branch and commitment shower | Current location etc...
 # https://github.com/jimeh/git-aware-prompt
-export GITAWAREPROMPT="/usr/local/bin/git-aware-prompt"
+export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
-PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+export PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 
 # Rails Server

@@ -6,9 +6,34 @@
 
 divider="....................."
 
+function bash_profile(){
+  path=$HOME/Documents/Projects/dotfiles
+  cp $path/mac/.profile ~/.profile
+  touch ~/.bashrc
+  echo '[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile' >> ~/.bashrc
+  source ~/.bashrc
+  echo $txtcyn ".bashrc created and sourced"
+}
+
+function zsh_profile(){
+  path=$HOME/Documents/Projects/dotfiles
+  cp $path/mac/.profile ~/.profile
+  touch ~/.zshrc
+  echo '[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile' >> ~/.zshrc
+  source ~/.zshrc
+  echo $txtcyn ".zshrc created and sourced"
+}
+
+function profile(){
+	path=$HOME/Documents/Projects/dotfiles
+	cp $path/mac/.profile ~/.profile
+	echo $txtcyn ".profile copied"
+}
+
 function git_aware_prompt() {
     echo "Git aware promt installing !!!"
-    mkdir -p "/usr/local/bin" && git -C $_ clone git@github.com:7urkm3n/git-aware-prompt.git
+    mkdir -p ~/.bash && git -C $_ clone https://github.com/7urkm3n/git-aware-prompt.git
+
     # git clone git@github.com:7urkm3n/git-aware-prompt.git
     # echo "export GITAWAREPROMPT=/usr/local/bin/git-aware-prompt" >> ~/.profile
     # echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
@@ -100,10 +125,14 @@ function current_machine_username() {
 
 function init() {
   echo "Init Executed"
-  # installing_brew
+  zsh_profile
+  bash_profile
+  # git_aware_prompt
+  # profile
+  # brew_installation
+
   # current_machine_username
   # install_dbs
-  # git_aware_prompt()
   # cp .custom_profile ~/
 
   # creating_work_folders
