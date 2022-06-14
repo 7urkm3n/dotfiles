@@ -84,12 +84,6 @@ set show-all-if-ambiguous on
 # . $(brew --prefix)/etc/bash_completion
 # fi
 
-############# Git branch and commitment shower | Current location etc...
-# https://github.com/jimeh/git-aware-prompt
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
-source "${GITAWAREPROMPT}/main.sh"
-export PS1="\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-
 
 # Rails Server
 function lvh(){

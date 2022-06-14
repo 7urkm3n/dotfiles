@@ -1,0 +1,49 @@
+# Ensure global gitignore is recognized.
+[core]
+  excludesfile = ~/.gitignore
+
+# Ensure your name and email are attached to your commits.
+[user]
+	name = 7urkm3n
+  email = first.last@mail.com
+
+# Ensure a "git fetch" prunes orphaned branches from your local index (general repo cleanliness).
+[fetch]
+	prune = true
+
+# Ensure a "git pull" always rebases local changes on top of remote changes.
+[pull]
+	rebase = true
+
+# Ensure a "git push" can only push to a remote branch with the same name.
+[push]
+  default = simple
+
+# Tell git to always use ssh.
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+	insteadOf = git://github.com/
+	insteadOf = git+https://github.com/
+	insteadOf = git+git://github.com/
+
+# Don't use "git push -f" or "git push --force" they are not history-safe
+# instead always force push while using a history-lease
+# this forces you to make sure you have the latest remote history fetched before you can push and rewrite history
+# "git pushf" command can now be used
+[alias]
+	pushf = push --force-with-lease
+
+[init]
+	templatedir = ~/.git-templates
+	defaultBranch = main
+
+# Install Git LFS locally to handle large files stored in our repos. For more info https://git-lfs.github.com/
+# Download git-lfs
+# `brew install git-lfs`
+# Set up git-lfs for your user account
+# `git lfs install`
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
