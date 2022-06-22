@@ -59,6 +59,19 @@ function .profile_copy(){
 	echo $txtcyn "Profile - Copied and Sourced"
 }
 
+function shell(){
+	echo $SHELL
+}
+
+# function gobash(){
+# 	chsh -s $(which bash)
+# }
+
+# function gozsh(){
+# 	chsh -s $(which zsh)
+# }
+
+
 ## delete file in a current folder
 function delete_x(){
 	# find "$(pwd)" -name '*.' -type f -delete
