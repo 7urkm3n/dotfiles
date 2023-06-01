@@ -1,3 +1,5 @@
+# https://craftquest.io/articles/using-custom-templates-in-git-to-change-the-default-branch-name
+
 # Ensure global gitignore is recognized.
 [core]
   excludesfile = ~/.gitignore
@@ -17,7 +19,7 @@
 
 # Ensure a "git push" can only push to a remote branch with the same name.
 [push]
-  default = simple
+  default = matching
 
 # Tell git to always use ssh.
 [url "git@github.com:"]
@@ -32,9 +34,10 @@
 # "git pushf" command can now be used
 [alias]
 	pushf = push --force-with-lease
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [init]
-	templatedir = ~/.git-templates
+	# templatedir = ~/.git-templates
 	defaultBranch = main
 
 # Install Git LFS locally to handle large files stored in our repos. For more info https://git-lfs.github.com/

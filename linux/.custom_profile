@@ -1,6 +1,6 @@
-source "$HOME/Documents/Projects/dotfiles/mac/.env_loads"
-source "$HOME/Documents/Projects/dotfiles/mac/.db_commands"
-source "$HOME/Documents/Projects/dotfiles/mac/.git_commands"
+source "$HOME/Documents/Projects/dotfiles/linux/.env_loads"
+source "$HOME/Documents/Projects/dotfiles/linux/.db_commands"
+source "$HOME/Documents/Projects/dotfiles/linux/.git_commands"
 
 ### Emailing
 # export SMTP_USER=""
@@ -9,7 +9,7 @@ source "$HOME/Documents/Projects/dotfiles/mac/.git_commands"
 
 
 ########################### Functions ##############################
-function w (){
+weather(){
 	city=$1
 	metrics=$2
 	if [[ $city = 'c' ]]; then
@@ -23,43 +23,43 @@ function w (){
 	fi
 }
 
-function reload(){
-	echo $txtcyn "Reloading bash profile...!"
-	source ~/.profile
-	echo $txtcyn "Reloaded!"
+reload(){
+	echo "Reloading bash profile...!"
+	. ~/.profile
+	echo "Reloaded!"
 }
 
-function .profile_push(){
+.profile_push(){
 	path=$HOME/Documents/Projects/dotfiles
-	# cp ~/.profile $path/mac
+	# cp ~/.profile $path/linux
 	git -C $path add .
 	git -C $path commit -m ...
 	git -C $path push
 
-	cp $path/mac/.profile ~/.profile
+	cp $path/linux/.profile ~/.profile
 	reload!
 
 	echo $txtcyn "Profile - Pushed to Github"
 }
 
 # .profile_pull uses github to pull last master commit
-function .profile_pull(){
+.profile_pull(){
 	path=$HOME/Documents/Projects/dotfiles
 	git -C $path pull origin master
-	cp $path/mac/.profile ~/.profile
+	cp $path/linux/.profile ~/.profile
 	reload!
 	echo $txtcyn "Profile - Pulled from Github"
 }
 
 # .profile_copy copies .profile file to `~/`
-function .profile_copy(){
+.profile_copy(){
 	path=$HOME/Documents/Projects/dotfiles
-	cp $path/mac/.profile ~/.profile
+	cp $path/linux/.profile ~/.profile
 	reload!
 	echo $txtcyn "Profile - Copied and Sourced"
 }
 
-function shell(){
+shell(){
 	echo $SHELL
 }
 
@@ -73,7 +73,7 @@ function shell(){
 
 
 ## delete file in a current folder
-function delete_x(){
+delete_x(){
 	# find "$(pwd)" -name '*.' -type f -delete
 	echo "$(pwd)"
     find . -name ".*" -print
@@ -99,7 +99,7 @@ set show-all-if-ambiguous on
 
 
 # Rails Server
-function lvh(){
+lvh(){
 	if [[ $1 ]]; then
 		port=$1
 	else
@@ -145,7 +145,7 @@ alias vs=code # Visual Studio
 
 # Local commands
 alias p='cd ~/Documents/Projects/'
-alias .profile='vs $HOME/Documents/Projects/dotfiles/mac/.profile'
+alias .profile='vs $HOME/Documents/Projects/dotfiles/linux/.profile'
 alias d1='cd /Volumes/Main\ disk'
 alias lla='ls -la -G'
 alias la='ls -a -G'

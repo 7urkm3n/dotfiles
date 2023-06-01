@@ -1,0 +1,39 @@
+# alias gopush="git push origin \$git_branch"
+# alias gopull='git pull origin'
+alias goh='git push heroku master'
+alias gs='git status'
+alias gaa='git add .'
+alias gb='git branch'
+alias gm='git merge'
+# alias gc='git commit'
+alias gcm='git commit -m'
+alias gd='git diff'
+alias gc='git checkout'
+alias gf='git fetch'
+# alias gk='gitk --all&'
+# alias gx='gitx --all'
+# alias got='git '
+# alias get='git '
+
+# Custom Git
+alias gcd='git checkout development'
+alias gcr='git checkout rovshen'
+alias cdr="cd $(git rev-parse --show-toplevel)"
+
+# Git Commands
+function gopush(){
+	# branch=$git_branch | tr -d \)\(
+	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+	echo "****************************"
+	echo "Pushing to:" $txtcyn $branch
+	echo "****************************"
+	git push origin $branch
+}
+
+function gopull(){
+	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+	echo "******************************"
+	echo "Pulling From:" $txtcyn $branch
+	echo "******************************"
+	git pull origin $branch
+}
