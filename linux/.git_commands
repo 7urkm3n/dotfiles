@@ -18,10 +18,10 @@ alias gf='git fetch'
 # Custom Git
 alias gcd='git checkout development'
 alias gcr='git checkout rovshen'
-alias cdr="cd $(git rev-parse --show-toplevel)"
+alias cdr='cd $(git rev-parse --show-toplevel)'
 
 # Git Commands
-function gopush(){
+gopush(){
 	# branch=$git_branch | tr -d \)\(
 	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 	echo "****************************"
@@ -30,7 +30,7 @@ function gopush(){
 	git push origin $branch
 }
 
-function gopull(){
+gopull(){
 	branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 	echo "******************************"
 	echo "Pulling From:" $txtcyn $branch
