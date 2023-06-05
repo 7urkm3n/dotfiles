@@ -153,4 +153,4 @@ alias l='ls -G'
 
 # Rspec
 # alias r='rspec'
-alias cr='clear; rspec'
+# alias cr='clear; rspec'
