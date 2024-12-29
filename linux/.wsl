@@ -1,0 +1,17 @@
+# Disable Windows 10/11 ENVs in WSL
+# WSL uses the file /etc/wsl.conf inside each Linux VM's filesystem to configure its behavior. Add the following configuration settings (explained here) to /etc/wsl.conf, creating that file if necessary:
+
+# sudo nano /etc/wsl.conf
+# [interop]
+# appendWindowsPath = false
+
+
+# powerShell command to see available ENV in windows!!!
+# can be used few more such as Dart, Flutter etc... 
+# $Env:PATH -split ';'
+
+# WSL export for explorer.exe 
+export PATH="/mnt/c/Windows:$PATH"
+
+# WSL export for VScode, code
+export PATH="/mnt/c/Users/rgurd/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"

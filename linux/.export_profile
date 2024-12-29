@@ -7,7 +7,6 @@ source "$HOME/Documents/Projects/dotfiles/linux/.git_commands"
 # export SMTP_PASSWORD=""
 # export SMTP_ADDRESS=""
 
-
 ########################### Functions ##############################
 weather(){
 	city=$1
