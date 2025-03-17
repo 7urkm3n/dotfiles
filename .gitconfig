@@ -7,7 +7,7 @@
 # Ensure your name and email are attached to your commits.
 [user]
 	name = 7urkm3n
-  email = first.last@mail.com
+  email = f1ash.tm1990@mail.com
 
 # Ensure a "git fetch" prunes orphaned branches from your local index (general repo cleanliness).
 [fetch]

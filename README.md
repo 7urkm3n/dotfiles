@@ -2,6 +2,7 @@
 
 #### git
 
+automate later to copy files
 ```
 cp .gitconfig ~/
 ```

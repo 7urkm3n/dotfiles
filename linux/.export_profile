@@ -7,7 +7,10 @@ source "$HOME/Documents/Projects/dotfiles/linux/.git_commands"
 # export SMTP_PASSWORD=""
 # export SMTP_ADDRESS=""
 
-########################### Functions ##############################
+alias brewery='brew update && brew upgrade && brew cleanup'
+alias vs=code # Visual Studio
+
+#========================= Functions ==================================
 weather(){
 	city=$1
 	metrics=$2
@@ -34,10 +37,8 @@ reload(){
 	git -C $path add .
 	git -C $path commit -m ...
 	git -C $path push
-
 	cp $path/linux/.profile ~/.profile
 	reload!
-
 	echo $txtcyn "Profile - Pushed to Github"
 }
 
@@ -48,14 +49,6 @@ reload(){
 	cp $path/linux/.profile ~/.profile
 	reload!
 	echo $txtcyn "Profile - Pulled from Github"
-}
-
-# .profile_copy copies .profile file to `~/`
-.profile_copy(){
-	path=$HOME/Documents/Projects/dotfiles
-	cp $path/linux/.profile ~/.profile
-	reload!
-	echo $txtcyn "Profile - Copied and Sourced"
 }
 
 shell(){
@@ -85,7 +78,14 @@ delete_x(){
 	# find . -name "*.*" -print
 }
 
-########## Auto Complete Terminal ###########
+delete_dsstores(){
+	sudo find . -name '*.DS_Store' -type f -delete
+	#alias dsstore="sudo find . -name '*.DS_Store' -type f -delete"
+	#alias deletee="find `pwd` -name '*.' -type f -delete"
+}
+#===================================================================================
+
+#========================= Auto Complete Terminal ==================================
 # TAB: menu-complete
 set completion-ignore-case on
 set show-all-if-ambiguous on
@@ -95,8 +95,9 @@ set show-all-if-ambiguous on
 # if [ -f $(brew --prefix)/etc/bash_completion ]; then
 # . $(brew --prefix)/etc/bash_completion
 # fi
+#===================================================================================
 
-
+#========================= RUBY AND RUBY on RAILS ==================================
 # Rails Server
 lvh(){
 	if [[ $1 ]]; then
@@ -115,41 +116,24 @@ lvh(){
 	# rails s -p $port -b lvh.me
 	foreman start -f ./Procfile.development -p $port
 }
-
-alias dsstore="sudo find . -name '*.DS_Store' -type f -delete"
-#alias deletee="find `pwd` -name '*.' -type f -delete"
-
-alias brewery='brew update && brew upgrade && brew cleanup'
-
-#Webpack Web Server
-alias webpack-start="webpack-dev-server --hot --inline"
-
-alias 412='cd $HOME/Documents/Projects/412eats'
-alias yaprak='cd $HOME/Documents/Projects/Yaprak'
-alias blueprint='cd $HOME/Documents/Projects/Blueprint'
-alias goblueprint='cd $HOME/Documents/Projects/golang/gocode/src/github.com/BlueprintNYC/ECA-Server-API'
-
-# alias puma_lvh='puma -b tcp://lvh.me:3000'
-# alias lvh='rails s -p 3000 -b lvh.me'
-# alias lvh='rvmsudo rails server -p 80 -b 0.0.0.0'
 alias lvhp='SECRET_KEY_BASE=xxx RAILS_ENV=production RAILS_SERVE_STATIC_FILES=true rails s -p 3000 -b lvh.me'
 alias lvhpp='SECRET_KEY_BASE=xxx RAILS_ENV=production rails s -p 3000'
 alias lvh_certificate="rails s -b 'ssl://lvh.me:3000?key=localhost.key&cert=localhost.crt'"
 alias compile_assets_production='RAILS_ENV=production SECRET_KEY_BASE=xxx RAILS_SERVE_STATIC_FILES=true rake assets:precompile'
+# alias puma_lvh='puma -b tcp://lvh.me:3000'
+# alias lvh='rails s -p 3000 -b lvh.me'
+# alias lvh='rvmsudo rails server -p 80 -b 0.0.0.0'
 
-# IDE's
-alias atom="/Applications/Atom.app/Contents/Resources/app/atom.sh" # Atom
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" # Sublime
-alias vs=code # Visual Studio
+# Ruby - Rspec
+# alias r='rspec'
+# alias cr='clear; rspec'
+#===================================================================================
 
+#================================ Local commands ====================================
 # Local commands
 alias p='cd ~/Documents/Projects/'
-alias .profile='vs $HOME/Documents/Projects/dotfiles/linux/.profile'
 alias d1='cd /Volumes/Main\ disk'
 alias lla='ls -la -G'
 alias la='ls -a -G'
 alias l='ls -G'
-
-# Rspec
-# alias r='rspec'
-# alias cr='clear; rspec'
+#===================================================================================
