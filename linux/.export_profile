@@ -132,6 +132,7 @@ alias compile_assets_production='RAILS_ENV=production SECRET_KEY_BASE=xxx RAILS_
 #================================ Local commands ====================================
 # Local commands
 alias p='cd ~/Documents/Projects/'
+alias mnt='cd /mnt/c/Users/rgurd/OneDrive/Documents/Projects'
 alias d1='cd /Volumes/Main\ disk'
 alias lla='ls -la -G'
 alias la='ls -a -G'
