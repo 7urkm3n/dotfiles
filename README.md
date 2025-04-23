@@ -2,9 +2,9 @@
 
 #### git
 
-automate later to copy files
+Just copy to ~/, bashrc has by default .profile
 ```
-cp .gitconfig ~/
+cp .profile ~/
 ```
 
 Linux or Mac
