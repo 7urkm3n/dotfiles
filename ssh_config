@@ -1,0 +1,33 @@
+# UseKeychain is not recognized by openssh, but recognized by system ssh on Mac
+IgnoreUnknown UseKeychain
+# Host github.com *.github.com
+# 	HostName github.com
+# 	User git
+# 	IdentityFile ~/.ssh/github_rsa
+# 	UseKeychain yes
+#
+#
+# Host gitlab.com *.gitlab.com
+# 	HostName gitlab.com
+# 	User git
+# 	IdentityFile ~/.ssh/gitlab_rsa
+# 	UseKeychain yes
+
+# Samples:
+#  cd /path/to/my/work/repo
+#  git remote set-url origin almaProgh:almapro183/web.git
+
+#  cd /path/to/my/perso/repo
+#  git remote set-url origin persgh:myPersoLogin/myPersorepo.git
+
+# # Personal GitHub
+# Host persgh
+#   HostName github.com
+#   User git
+#   IdentityFile ~/.ssh/id_rsa_perso
+
+# # Work GitHub
+# Host almaProgh
+#   HostName github.com
+#   User git
+#   IdentityFile ~/.ssh/id_rsa_work

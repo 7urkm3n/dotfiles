@@ -46,9 +46,10 @@ git_aware_prompt() {
 # 	fi
 # }
 
-# brew_installation() {
-#   echo "visit https://www.digitalocean.com/community/tutorials/how-to-install-and-use-homebrew-on-linux"
-# }
+brew_installation() {
+  echo "check `brew bundle --global`, dnt forget to make .Brewfile"
+  echo "visit https://www.digitalocean.com/community/tutorials/how-to-install-and-use-homebrew-on-linux"
+}
 
 brew_install_cmake() {
   echo "Installing `cmake` via brew"
