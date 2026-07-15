@@ -39,16 +39,16 @@ git_aware_prompt() {
     # echo "source '${GITAWAREPROMPT}/main.sh'" >> ~/.profile
 }
 
-install_gems() {
-	if ! [ -x "$(command -v foreman)" ]; then
-	  echo "Foreman wasn't installed, Instaling foreman ..."
-	  gem install foreman
-	fi
-}
+# install_gems() {
+# 	if ! [ -x "$(command -v foreman)" ]; then
+# 	  echo "Foreman wasn't installed, Instaling foreman ..."
+# 	  gem install foreman
+# 	fi
+# }
 
-brew_installation() {
-  echo "visit https://www.digitalocean.com/community/tutorials/how-to-install-and-use-homebrew-on-linux"
-}
+# brew_installation() {
+#   echo "visit https://www.digitalocean.com/community/tutorials/how-to-install-and-use-homebrew-on-linux"
+# }
 
 brew_install_cmake() {
   echo "Installing `cmake` via brew"
